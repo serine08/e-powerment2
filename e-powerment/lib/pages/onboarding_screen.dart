@@ -30,7 +30,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.deepPurple[200],
+
       body: Stack(
         children: [
 
@@ -64,7 +64,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                     onTap: () {
                       _controller.jumpToPage(2);
           },
-                      child :const Text(
+                      child : const Text(
                           'Skip',
                       style: TextStyle(
                         color: Colors.white,
@@ -78,8 +78,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                     controller: _controller,
                     count: 3,
                     effect:  ExpandingDotsEffect(
-                    activeDotColor: Colors.deepPurple,
-                      dotColor: Colors.deepPurple.shade100,
+                    activeDotColor: const Color(0xFFb39DDB),
+                      dotColor: Colors.white,
 
                   ),
                   ),

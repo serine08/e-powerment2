@@ -1,6 +1,7 @@
 import 'package:e_empowerment/Profil.dart';
 import 'package:e_empowerment/pages/homepage.dart';
 import 'package:e_empowerment/pages/settings_page.dart';
+import 'package:e_empowerment/plan%C3%A8te01/niveau01/views/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 
@@ -19,21 +20,17 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
       color: Colors.white
   );
 
+
+
+
+
   @override
   void initState() {
     super.initState();
     _pages = [
-      ScreenHiddenDrawer(
-        ItemHiddenMenu(
-          name: 'Profil',
-          colorLineSelected: Colors.deepPurple,
 
-          baseStyle: myTextStyle,
-          selectedStyle: myTextStyle,
 
-        ),
-         ProfilUi(),
-      ),
+
 
       ScreenHiddenDrawer(
         ItemHiddenMenu(

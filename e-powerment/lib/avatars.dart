@@ -1,8 +1,5 @@
-import 'package:e_empowerment/CardWidget.dart';
-import 'package:e_empowerment/RangeSlider.dart';
-import 'package:e_empowerment/notes_page.dart';
-import 'package:e_empowerment/pages/hidden_drawer.dart';
-import 'package:e_empowerment/pages/homepage.dart';
+
+import 'package:e_empowerment/pages/onboarding_screen.dart';
 import 'package:e_empowerment/pseudo_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -18,14 +15,21 @@ class Avatar extends StatefulWidget {
 class _AvatarState extends State<Avatar> {
 
   List<String> values = ['images/avatar01.jpg','images/pingouin.jpg','images/sun.jpg','images/burger.jpg','images/star.png','images/dinosaur.jpg'];
+
+  late int  currentStep;
+  int selectedCard = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: Colors.deepPurple.shade100,
+
 
       body: Container(
-
-        padding: EdgeInsets.only(top: 60 ,left:10,right: 10),
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage("images/Plandetravail1.png"),
+          fit:BoxFit.cover
+        ),
+        ),
+        padding: const EdgeInsets.only(top: 60 ,left:10,right: 10),
 
 
 
@@ -34,14 +38,14 @@ backgroundColor: Colors.deepPurple.shade100,
 
             Center(
               child: RichText(
-                text: const TextSpan(
+                text:  TextSpan(
                   text: 'Pour commencer je te propose de choisir ton ',
-                  style: TextStyle(color: Colors.deepPurple , fontSize: 20 , fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
 
                   /*defining default style is optional */
                   children: <TextSpan>[
                     TextSpan(
-                        text: ' avatar !', style: TextStyle( color:Colors.white,fontWeight: FontWeight.bold,)),
+                        text: ' avatar !', style: TextStyle( color:Colors.deepPurple[200],fontWeight: FontWeight.bold,)),
 
 
                   ],
@@ -62,16 +66,48 @@ backgroundColor: Colors.deepPurple.shade100,
                 itemCount: 6,
                 itemBuilder: (context,index){
                   return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                      side: BorderSide(
+                          color: selectedCard == index ? const Color(0xff6856FF) : Colors.transparent,
+                       // color: selectedCard == 0 ? const Color(0xffA49BEC) : Colors.transparent,
+                        width: 4
+                      )
+                    ),
+                    elevation: 10,
+                    child: Center(
+                      child:Center(
 
-                    elevation: 10,child: Center(child:Center(
+                       child: GestureDetector(
 
-                    child: GestureDetector(
-                      child: Image.asset(values[index]),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PseudoPage()));
+                          child: Container(
+                              decoration: BoxDecoration(
+
+
+                                boxShadow: [
+                                  BoxShadow(
+
+                                      spreadRadius :2,
+                                      blurRadius: 10,
+                                      color: Colors.black.withOpacity(0.1)
+                                  ),
+
+                                ],
+                                shape: BoxShape.circle,
+                                image:  DecorationImage(
+
+                                  fit: BoxFit.cover,
+                                  image:AssetImage(values[index]),
+                                ) ,
+                              )
+                              ),
+                           onTap: () {
+                        setState(() {
+                          currentStep = index;
+                          selectedCard=index;
+                        }  );
+
+
                       },
                     ),
                   ) ,),
@@ -96,49 +132,34 @@ backgroundColor: Colors.deepPurple.shade100,
         ),
 
       ),
-      bottomNavigationBar: Container(
-        // how to play with colors  type: BottomNavigationBarType.fixed, // This is all you need!
-
-        color: Colors.deepPurple.shade100,
-        child:  Padding(
-          padding:  const EdgeInsets.symmetric(horizontal: 20.0 ,vertical: 5),
-          child: GNav(
+      bottomNavigationBar:GNav(
 
             tabBorderRadius: 15,
             duration: const Duration(milliseconds: 800),
-            backgroundColor: Colors.deepPurple.shade100 ,
-            color: Colors.grey[800],
-            iconSize: 24,
 
-            activeColor: Colors.deepPurple,
-            tabBackgroundColor: Colors.deepPurple.withOpacity(0.1),
-            gap: 8,
+        backgroundColor: const Color(0xff29216B ),
+            iconSize: 40,
+
+            activeColor: Colors.white,
+
+
 
             // here where it ends
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.only(top: 10,bottom: 10,left: 350),
             tabs:  [
-               GButton(
 
-                icon: Icons.home,
-                text: "Home",
 
-                onPressed:(){
-
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                    return   const HomePage();
-                  },),);
-                },
-              ),
               GButton(
 
                 icon: Icons.navigate_next,
-                text: "Next",
+
+
+
          onPressed:(){
 
           Navigator.push(context, MaterialPageRoute(builder: (context){
 
-          return   NotesPage();
+          return   PseudoPage(index: currentStep);
           },),);
           },
 
@@ -146,9 +167,9 @@ backgroundColor: Colors.deepPurple.shade100,
 
             ],
           ),
-        ),
-      ),
+        );
 
-    );
+
+
   }
 }

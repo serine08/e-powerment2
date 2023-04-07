@@ -16,10 +16,10 @@ class _IntroPage2State extends State<IntroPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[200],
+      backgroundColor: const Color(0xff29216B ),
       body: Center(
 
-  heightFactor: 5,
+        heightFactor: 5,
         child:
 
 

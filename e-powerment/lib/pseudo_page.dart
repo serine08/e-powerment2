@@ -1,26 +1,38 @@
+import 'package:e_empowerment/Welcome.dart';
+import 'package:e_empowerment/avatars.dart';
 import 'package:e_empowerment/notes_page.dart';
 import 'package:e_empowerment/pages/hidden_drawer.dart';
 import 'package:e_empowerment/pages/homepage.dart';
+import 'package:e_empowerment/pages/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 
 class PseudoPage extends StatelessWidget {
-  PseudoPage({Key? key}) : super(key: key);
-
+  PseudoPage({Key? key, required this.index}) : super(key: key);
 
 
 
   List<String> values = ['images/avatar01.jpg','images/pingouin.jpg','images/sun.jpg','images/burger.jpg','images/star.png','images/dinosaur.jpg'];
+final int index;
 
 bool isObscurePassword =true;
+   TextEditingController myController = TextEditingController();
+
+  get currentStep => index;
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
 
 
         body:Container(
-          
+          decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("images/Plandetravail1.png"),
+                fit:BoxFit.cover
+            ),
+          ),
           padding: const EdgeInsets.only(left:15,top:20,right:15),
           child:  GestureDetector(
            onTap : () {
@@ -40,7 +52,7 @@ bool isObscurePassword =true;
                            height: 130,
                            decoration: BoxDecoration(
 
-                             border:Border.all(width: 4,color: Colors.white ),
+                             border:Border.all(width:2,color: Colors.transparent ),
                              boxShadow: [
                                BoxShadow(
 
@@ -54,7 +66,7 @@ bool isObscurePassword =true;
                              image:  DecorationImage(
 
                                fit: BoxFit.cover,
-                               image:AssetImage(values[1]),
+                               image:AssetImage(values[index]),
                                ) ,
                              )
                            ),
@@ -70,13 +82,26 @@ bool isObscurePassword =true;
                   ),
                   const SizedBox(
                     height:30 ),
-                   const Text("Quel est le Pseudonyme que tu souhaites utiliser ?",
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20
-                    ) ,textAlign: TextAlign.center, ),
-                  buildTextField("Pseudo", "Roumaissa", false),
+                  RichText(
+                    text:    const TextSpan(
+                      text: 'Quel est le   ',
+                      style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
+
+                      /*defining default style is optional */
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: ' Pseudonyme ', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
+                        TextSpan(
+                            text: ' que tu souhaites utiliser ? ', style: TextStyle( color:Colors.white,fontSize:20,fontWeight: FontWeight.bold,)),
+
+
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                      height:20 ),
+                  buildTextField("Pseudo"),
 
                 ],
               )
@@ -93,22 +118,16 @@ bool isObscurePassword =true;
 
 
     ),
-      bottomNavigationBar: Container(
-        // how to play with colors  type: BottomNavigationBarType.fixed, // This is all you need!
-
-        color: Colors.deepPurple.shade100,
-        child:  Padding(
-          padding:  const EdgeInsets.symmetric(horizontal: 20.0 ,vertical: 5),
-          child: GNav(
+      bottomNavigationBar: GNav(
 
             tabBorderRadius: 15,
             duration: const Duration(milliseconds: 800),
-            backgroundColor: Colors.deepPurple.shade100 ,
-            color: Colors.grey[800],
-            iconSize: 24,
+            backgroundColor: const Color(0xff29216B),
 
-            activeColor: Colors.deepPurple,
-            tabBackgroundColor: Colors.deepPurple.withOpacity(0.1),
+            iconSize: 40,
+
+            color: Colors.white,
+          activeColor: Colors.white,
             gap: 8,
 
             // here where it ends
@@ -116,52 +135,93 @@ bool isObscurePassword =true;
             tabs:  [
               GButton(
 
-                icon: Icons.home,
-                text: "Home",
+                icon: Icons.navigate_before,
+
 
                 onPressed:(){
 
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                    return   const HiddenDrawer();
-                  },),);
+                  Navigator.pop(context);
                 },
               ),
+
+
               GButton(
 
                 icon: Icons.navigate_next,
-                text: "Next",
+
                 onPressed:(){
+                 if(_formKey.currentState!.validate()){
+                  String value = myController.text;
+                   Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                                         return    Welcome(value: value, index: index) ;
+                                                       },),);
 
-                    return   NotesPage();
-                  },),);
+                         }
+
                 },
 
               ),
 
             ],
           ),
-        ),
-      ),
+
     );
   }
-  Widget buildTextField(String labelText , String placeholder , bool isPasswordTextField) {
+  Widget buildTextField( String placeholder ) {
     return  Padding(
         padding: const EdgeInsets.all( 50),
-      child: TextField(
+      child: Form(
+        key: _formKey,
 
-        decoration: InputDecoration(
-        contentPadding: const EdgeInsets.only(bottom: 5),
-          labelText: labelText,
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          hintText: placeholder,
-          hintStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey
-          )
+        child: TextFormField(
+
+          controller: myController,
+
+          onSaved: (String? value){
+            String value = myController.text;
+            print('La valeur saisie est : $value');
+          },
+          decoration: InputDecoration(
+
+          contentPadding: const EdgeInsets.only( left: 20),
+
+
+            enabledBorder:   OutlineInputBorder(
+              borderRadius: BorderRadius.circular(70),
+              borderSide: const BorderSide(
+                color: Colors.white,
+                width: 1.5
+
+              )
+            ),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(70),
+              borderSide: BorderSide(
+                color: Colors.grey.shade400
+              )
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: Colors.red,
+                
+              ),
+              borderRadius: BorderRadius.circular(70)
+            ),
+            fillColor: Colors.grey.shade200,
+            filled: true,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            hintText: placeholder,
+            hintStyle:  TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey.shade700
+            )
+
+          ),
+          validator: (String? value) =>
+          value != null && value.isEmpty ? 'Veuillez saisir du texte': null,
+
 
         ),
       ),

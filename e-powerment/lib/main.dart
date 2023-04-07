@@ -6,11 +6,20 @@ import 'package:flutter/services.dart';
 import 'note_list.dart';
 import 'add_note.dart';
 import 'pages/homepage.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:provider/provider.dart';
+import 'package:e_empowerment/planète01/niveau01/data/models/menu_info.dart';
 
 
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  var initializationSettingsAndroid = AndroidInitializationSettings('codex_logo');
+
+
+  var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

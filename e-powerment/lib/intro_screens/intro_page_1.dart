@@ -1,6 +1,9 @@
 import 'package:e_empowerment/pages/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:icon_forest/iconoir.dart';
 import 'package:lottie/lottie.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class IntroPage1 extends StatefulWidget {
@@ -14,14 +17,34 @@ class IntroPage1 extends StatefulWidget {
 }
 
 class _IntroPage1State extends State<IntroPage1> {
+  final style =const TextStyle(fontSize: 50,fontWeight: FontWeight.bold ,);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: Colors.deepPurple[200],
+backgroundColor: const Color(0xff29216B ),
       body: Center(
 
+            child: SizedBox(
 
-          child:  Lottie.network('https://assets9.lottiefiles.com/packages/lf20_KTTSsGSbg1.json'),
+                child: DefaultTextStyle(
+                  style: GoogleFonts.poppins(
+                    textStyle: style,
+                  ),
+                  textAlign:TextAlign.center,
+                  child: AnimatedTextKit(
+
+                  animatedTexts: [
+
+                    TyperAnimatedText("Bienvenue à"),
+                    TyperAnimatedText("Aile Health"),
+                  ],
+                  onTap: (){
+                    print("Tap Event");
+                  },
+                ),
+                ),
+            ),
+         // child:  Lottie.network('https://assets9.lottiefiles.com/packages/lf20_KTTSsGSbg1.json'),
 
             ),
 
