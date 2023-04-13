@@ -61,11 +61,13 @@ class _AvatarState extends State<Avatar> {
             Expanded(
 
               child: GridView.builder(
+
                 padding: const EdgeInsets.only(top: 30,left: 20,right: 20),
 
                 itemCount: 6,
                 itemBuilder: (context,index){
                   return Card(
+
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                       side: BorderSide(
@@ -81,6 +83,7 @@ class _AvatarState extends State<Avatar> {
                        child: GestureDetector(
 
                           child: Container(
+
                               decoration: BoxDecoration(
 
 
@@ -113,10 +116,11 @@ class _AvatarState extends State<Avatar> {
                   ) ,),
                   );
                 },
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount:2,
                   crossAxisSpacing:40,
                   mainAxisSpacing: 20,
+
 
 
                 ),
@@ -127,12 +131,15 @@ class _AvatarState extends State<Avatar> {
 
 
 
+
+
           ],
 
         ),
 
       ),
-      bottomNavigationBar:GNav(
+
+     bottomNavigationBar:GNav(
 
             tabBorderRadius: 15,
             duration: const Duration(milliseconds: 800),

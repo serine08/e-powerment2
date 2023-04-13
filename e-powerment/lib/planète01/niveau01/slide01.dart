@@ -156,7 +156,7 @@ class Slide01 extends StatelessWidget {
                             shape: BoxShape.rectangle,
 
                           ),
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
 
                         child: const Text("C'EST PARTI !",
                         style: TextStyle(

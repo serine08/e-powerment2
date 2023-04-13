@@ -131,7 +131,7 @@ bool isObscurePassword =true;
             gap: 8,
 
             // here where it ends
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(10),
             tabs:  [
               GButton(
 

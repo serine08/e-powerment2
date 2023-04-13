@@ -79,19 +79,15 @@ class Welcome extends StatelessWidget {
 
                       ],
                     )
-                  /*  child: TextField(
 
-                      decoration: InputDecoration(
-                        hintText: 'Pseudo...',
-                      ),
-                    ), */
                 ),
                 const SizedBox(
                     height:30 ),
 
                 Container(
 
-
+                 width: 300,
+                  height: 150,
                   decoration: BoxDecoration(
 
                     borderRadius: BorderRadius.circular(100),
@@ -109,7 +105,7 @@ class Welcome extends StatelessWidget {
                     shape: BoxShape.rectangle,
 
                   ),
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(left: 5, right: 5, top: 30, bottom: 30),
                   child: RichText(
                     text:  TextSpan(
                       text: 'Enchanté  ',
@@ -118,33 +114,32 @@ class Welcome extends StatelessWidget {
                       /*defining default style is optional */
                       children: <TextSpan>[
                         TextSpan(
-                            text: ' $value ', style:  TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
+                            text: ' $value ', style:  const TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
                         const TextSpan(
-                            text: ' !', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
+                            text: ' ! \n ', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
 
+                        const TextSpan(
+                          text: 'Moi, c\'est  ',
+                          style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
+
+                          /*defining default style is optional */
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: ' POTO ', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
+                            TextSpan(
+                                text: ' je vais t\'accompagner dans cette exploration ', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
+
+
+                          ],
+                        ),
 
                       ],
                     ),
+
                     textAlign: TextAlign.center,
                   ),
                 ),
-                RichText(
-                  text:   const TextSpan(
-                    text: 'Moi, c\'est  ',
-                    style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
 
-                    /*defining default style is optional */
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: ' POTO ', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
-                      TextSpan(
-                          text: ' je vais t\'accompagner dans cette exploration ', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
-
-
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
-                ),
 
                 const SizedBox(
                     height:40 ),
@@ -168,7 +163,7 @@ class Welcome extends StatelessWidget {
                             ),
 
                           ],
-                          shape: BoxShape.circle,
+                          shape: BoxShape.rectangle,
                           image:  const DecorationImage(
 
                             fit: BoxFit.cover,
@@ -203,7 +198,7 @@ class Welcome extends StatelessWidget {
 
             tabBorderRadius: 15,
             duration: const Duration(milliseconds: 800),
-            backgroundColor: Color(0xff29216B) ,
+            backgroundColor: const Color(0xff29216B) ,
             color: Colors.white,
             iconSize: 40,
 
@@ -212,7 +207,7 @@ class Welcome extends StatelessWidget {
             gap: 8,
 
             // here where it ends
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(10),
             tabs:  [
               GButton(
 
@@ -232,7 +227,7 @@ class Welcome extends StatelessWidget {
 
                   Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                    return   Galaxy();
+                    return   const Galaxy();
                   },),);
                 },
 
