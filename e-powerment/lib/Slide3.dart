@@ -1,4 +1,6 @@
 import 'package:e_empowerment/Slide4.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Profil/Slide10.dart';
+import 'package:e_empowerment/plan%C3%A8te01/niveau01/Slide09.dart';
 import 'package:e_empowerment/plan%C3%A8te01/niveau01/slide01.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -59,7 +61,7 @@ class _Slide3State extends State<Slide3> {
                         alignment: Alignment(-0.9,0.2),
                         child: RichText(
                           text:  const TextSpan(
-                            text: 'Je te propose de \n commencer la \n visite par ton \n vaisseau spatiale ',
+                            text: 'Je te propose de \n commencer la \n visite par ton \n vaisseau spatial ',
                             style: TextStyle(color: Colors.white , fontSize: 25 , fontWeight: FontWeight.bold),
 
                             /*defining default style is optional */
@@ -113,7 +115,8 @@ class _Slide3State extends State<Slide3> {
                             onPressed: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                                return Slide4();
+                               // return Slide4();
+                                return Slide10();
                               },),);
                             },
                             child: const Text('Toucher pour continuer')),

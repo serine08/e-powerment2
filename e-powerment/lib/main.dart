@@ -34,11 +34,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   MaterialApp(
+
       debugShowCheckedModeBanner: false,
-      home: const OnBoardScreen(),
-     theme: ThemeData(
-        primarySwatch: buildMaterialColor(const Color(0xFF673AB7)),
-      ),
+      home:  OnBoardScreen(),
+      builder: (context, child) {
+        return Directionality(
+          textDirection: TextDirection.ltr,
+          child: child!,
+        );
+      },
+        theme: ThemeData(
+            colorSchemeSeed: const Color(0xff6750a4), useMaterial3: true,
+          scrollbarTheme: ScrollbarThemeData(
+
+           // Set the desired height of the thumb
+
+            thumbColor: MaterialStateProperty.all<Color>(Colors.purple),
+            trackColor: MaterialStateProperty.all<Color>(Colors.grey.withOpacity(0.46)),
+
+          ),
+        ),
     );
   }
 }

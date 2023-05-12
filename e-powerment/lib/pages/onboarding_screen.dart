@@ -36,16 +36,10 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
 
 
          PageView(
-           controller: _controller,
-           onPageChanged: (index){
-             setState(() {
-               onLastPage =(index ==2);
-             });
-           },
+
            children: const [
              IntroPage1(),
-             IntroPage2(),
-             IntroPage3(),
+
 
            ],
          ),
@@ -53,69 +47,31 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
           //page view
 
        // dot indicators 
-          Container(
-            alignment:  const Alignment(0,0.8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // to make space between dots indicators
-                children: [
 
-                  // skip
-                  GestureDetector(
-                    onTap: () {
-                      _controller.jumpToPage(2);
-          },
-                      child : const Text(
-                          'Skip',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold
-                      ),),
 
-                  ),
-                  // dot indicator
-                  SmoothPageIndicator(
-                    controller: _controller,
-                    count: 3,
-                    effect:  ExpandingDotsEffect(
-                    activeDotColor: const Color(0xFFb39DDB),
-                      dotColor: Colors.white,
+          Align(
+                   alignment: const Alignment(0.9,0.9),
+                   child: IconButton(
 
-                  ),
-                  ),
 
-                  // next  or done
-                  onLastPage?
-
-                  GestureDetector(
-                      onTap: (){
+                      onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return   const Avatar();
+
+                          return    Avatar();
                         },),);
-                      },
-                      child: const Text(
-                          'done',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold
-                      ),),
-                  ):
-                  GestureDetector(
-                    onTap: (){
-                      _controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
-                    },
-                    child: const Text(
-                      'Next',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold
-                      ),
-                  ) ,),
-                ],
-              ),)
+                      }, icon: const Icon(Icons.navigate_next),
+                      iconSize: 40,
+                      color: Colors.white,
+
+
+                    ),
+                 ),
+
+
+
+
         ],
+
       )
     );
   }

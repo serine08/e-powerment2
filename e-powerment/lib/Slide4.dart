@@ -1,5 +1,6 @@
-import 'package:e_empowerment/Niveaux.dart';
 import 'package:e_empowerment/Slide4.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau1/page_niveau1.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau4/page_niveau.dart';
 import 'package:e_empowerment/plan%C3%A8te01/niveau01/slide01.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -126,7 +127,7 @@ class _Slide4State extends State<Slide4> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                        return Niveau();
+                        return const Niveau();
                       },),);
                     },
                     child: Container(

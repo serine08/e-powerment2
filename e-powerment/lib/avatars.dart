@@ -1,8 +1,10 @@
 
-import 'package:e_empowerment/pages/onboarding_screen.dart';
+
+
 import 'package:e_empowerment/pseudo_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
 
 
 class Avatar extends StatefulWidget {
@@ -18,9 +20,25 @@ class _AvatarState extends State<Avatar> {
 
   late int  currentStep;
   int selectedCard = -1;
+
+  late bool _isButtonDisabled;
+  @override
+  void initState() {
+    _isButtonDisabled = false;
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _isButtonDisabled = true;
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
+
+    final ColorScheme colors = Theme.of(context).colorScheme;
     return Scaffold(
+
 
 
       body: Container(
@@ -62,10 +80,11 @@ class _AvatarState extends State<Avatar> {
 
               child: GridView.builder(
 
-                padding: const EdgeInsets.only(top: 30,left: 20,right: 20),
+                padding: const EdgeInsets.only(top: 20,left: 20,right: 20),
 
                 itemCount: 6,
                 itemBuilder: (context,index){
+
                   return Card(
 
                     shape: RoundedRectangleBorder(
@@ -78,7 +97,7 @@ class _AvatarState extends State<Avatar> {
                     ),
                     elevation: 10,
                     child: Center(
-                      child:Center(
+
 
                        child: GestureDetector(
 
@@ -102,8 +121,10 @@ class _AvatarState extends State<Avatar> {
                                   fit: BoxFit.cover,
                                   image:AssetImage(values[index]),
                                 ) ,
-                              )
                               ),
+
+                              ),
+
                            onTap: () {
                         setState(() {
                           currentStep = index;
@@ -113,7 +134,8 @@ class _AvatarState extends State<Avatar> {
 
                       },
                     ),
-                  ) ,),
+
+                  ) ,
                   );
                 },
                 gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
@@ -133,47 +155,49 @@ class _AvatarState extends State<Avatar> {
 
 
 
+
           ],
 
         ),
 
       ),
+      bottomNavigationBar:GNav(
 
-     bottomNavigationBar:GNav(
-
-            tabBorderRadius: 15,
-            duration: const Duration(milliseconds: 800),
+        tabBorderRadius: 15,
+        duration: const Duration(milliseconds: 800),
 
         backgroundColor: const Color(0xff29216B ),
-            iconSize: 40,
+        iconSize: 40,
 
-            activeColor: Colors.white,
-
-
-
-            // here where it ends
-            padding: const EdgeInsets.only(top: 10,bottom: 10,left: 350),
-            tabs:  [
-
-
-              GButton(
-
-                icon: Icons.navigate_next,
+        activeColor: Colors.white,
 
 
 
-         onPressed:(){
+        // here where it ends
+        padding: const EdgeInsets.only(top: 10,bottom: 10,left: 350),
+        tabs:  [
 
-          Navigator.push(context, MaterialPageRoute(builder: (context){
 
-          return   PseudoPage(index: currentStep);
-          },),);
-          },
+          GButton(
 
-              ),
+            icon: Icons.navigate_next,
 
-            ],
+
+
+            onPressed:(){
+
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                return   PseudoPage(index: currentStep);
+              },),);
+            },
+
           ),
+
+        ],
+      ),
+
+
         );
 
 

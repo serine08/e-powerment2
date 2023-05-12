@@ -87,10 +87,10 @@ class Welcome extends StatelessWidget {
                 Container(
 
                  width: 300,
-                  height: 150,
+                  height: 200,
                   decoration: BoxDecoration(
 
-                    borderRadius: BorderRadius.circular(100),
+                    borderRadius: BorderRadius.circular(50),
                     border:Border.all(color: Colors.transparent ),
                     color: const Color(0xffA49BEc).withOpacity(0.3),
                     boxShadow: [
@@ -119,7 +119,7 @@ class Welcome extends StatelessWidget {
                             text: ' ! \n ', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
 
                         const TextSpan(
-                          text: 'Moi, c\'est  ',
+                          text: '\n\nMoi, c\'est  ',
                           style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */
@@ -142,7 +142,7 @@ class Welcome extends StatelessWidget {
 
 
                 const SizedBox(
-                    height:40 ),
+                    height:30 ),
                 Stack(
 
                   children: [

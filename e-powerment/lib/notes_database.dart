@@ -1,6 +1,10 @@
 import 'package:e_empowerment/Humeur.dart';
 import 'package:e_empowerment/Pens%C3%A9es.dart';
+import 'package:e_empowerment/Quality.dart';
+import 'package:e_empowerment/db_test.dart';
 import 'package:e_empowerment/notes.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau03/BesoinModel.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau2/Competence.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -33,18 +37,22 @@ class NotesDatabase {
     final integerType = 'INTEGER NOT NULL';
 
     await db.execute('''
-CREATE TABLE $tableNotes ( 
-  ${NoteFields.id} $idType, 
-  ${NoteFields.isImportant} $boolType,
-  ${NoteFields.number} $integerType,
-  ${NoteFields.title} $textType,
-  ${NoteFields.description} $textType,
-  ${NoteFields.time} $textType
-  )
-  
-''');
+    CREATE TABLE $tableNotes ( 
+      ${NoteFields.id} $idType, 
+      ${NoteFields.isImportant} $boolType,
+      ${NoteFields.number} $integerType,
+      ${NoteFields.title} $textType,
+      ${NoteFields.description} $textType,
+      ${NoteFields.time} $textType
+      )
+        
+      ''');
 
     await db.execute("CREATE TABLE Humeur(_id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT NOT NULL, Rating INTEGER NOT NULL)");
+    await db.execute("CREATE TABLE Quality(_id INTEGER PRIMARY KEY AUTOINCREMENT, Quality TEXT , idQuality INTEGER)");
+    await db.execute("CREATE TABLE Competence(_id INTEGER PRIMARY KEY AUTOINCREMENT, competence TEXT , idCompetence INTEGER)");
+    await db.execute("CREATE TABLE Besoin(_id INTEGER PRIMARY KEY AUTOINCREMENT, besoin TEXT , idBesoin INTEGER)");
+
 
     await db.execute('''
 CREATE TABLE $tablePensee ( 
@@ -98,6 +106,154 @@ if(db.isOpen) {
 
 }
 else return humeur;
+  }
+
+
+  Future<Quality> createQ(Quality qualite) async {
+    final db = await instance.database;
+
+
+
+    if(db.isOpen) {
+      final id = await db.insert("Quality", qualite.toJson());
+      return qualite.copy(id: id);
+
+    }
+    else return qualite;
+  }
+  Future<void> deleteQ(int id) async {
+    final db = await instance.database;
+    if(db.isOpen) {
+      await db.delete("Quality", where: "idQuality = ?", whereArgs: [id]);
+    }
+  }
+  Future<Quality?> getQualityByValue(String value) async {
+    final db = await instance.database;
+    if (db.isOpen) {
+      final List<Map<String, dynamic>> maps = await db.query(
+        'Quality',
+        where: 'quality = ?',
+        whereArgs: [value],
+      );
+      if (maps.isNotEmpty) {
+        return Quality.fromJson(maps.first);
+      }
+    }
+    return null;
+  }
+
+
+  Future<List<Quality>> readAllQuality() async {
+    final db = await instance.database;
+
+    // final result =
+    //     await db.rawQuery('SELECT * FROM $tableNotes ORDER BY $orderBy');
+
+    final result = await db.query("Quality");
+
+    return result.map((json) => Quality.fromJson(json)).toList();
+  }
+
+
+
+
+
+
+  Future<Competence> createC(Competence competence) async {
+    final db = await instance.database;
+
+
+
+    if(db.isOpen) {
+
+      final id = await db.insert("Competence", competence.toJson());
+      return competence.copy(id: id);
+
+    }
+    else return competence;
+  }
+  Future<void> deleteC(int id ) async {
+    final db = await instance.database;
+    if(db.isOpen) {
+      await db.delete("Competence", where: "competence = ?", whereArgs: [id]);
+    }
+  }
+  Future<Competence?> getCompetenceByValue(String value) async {
+    final db = await instance.database;
+    if (db.isOpen) {
+      final List<Map<String, dynamic>> maps = await db.query(
+        'Competence',
+        where: 'competence = ?',
+        whereArgs: [value],
+      );
+      if (maps.isNotEmpty) {
+        return Competence.fromJson(maps.first);
+      }
+    }
+    return null;
+  }
+
+  Future<List<Competence>> readAllCompetence() async {
+    final db = await instance.database;
+
+
+    final result = await db.query("Competence");
+
+
+
+    return result.map((json) => Competence.fromJson(json)).toList();
+  }
+
+
+
+
+
+
+
+  Future<Besoin> createB(Besoin besoin) async {
+    final db = await instance.database;
+
+
+
+    if(db.isOpen) {
+
+      final id = await db.insert("Besoin", besoin.toJson());
+      return besoin.copy(id: id);
+
+    }
+    else return besoin;
+  }
+
+  Future<void> deleteB(int id) async {
+    final db = await instance.database;
+    if(db.isOpen) {
+      await db.delete("Besoin", where: "idBesoin = ?", whereArgs: [id]);
+    }
+  }
+  Future<Besoin?> getBesoinByValue(String value) async {
+    final db = await instance.database;
+    if (db.isOpen) {
+      final List<Map<String, dynamic>> maps = await db.query(
+        'Besoin',
+        where: 'besoin = ?',
+        whereArgs: [value],
+      );
+      if (maps.isNotEmpty) {
+        return Besoin.fromJson(maps.first);
+      }
+    }
+    return null;
+  }
+
+  Future<List<Besoin>> readAllBesoin() async {
+    final db = await instance.database;
+
+
+    final result = await db.query("Besoin");
+
+
+
+    return result.map((json) => Besoin.fromJson(json)).toList();
   }
 /*------------------------------------------------------------------------------------------*/
 

@@ -36,7 +36,7 @@ backgroundColor: const Color(0xff29216B ),
                   animatedTexts: [
 
                     TyperAnimatedText("Bienvenue à"),
-                    TyperAnimatedText("Aile Mental"),
+                    TyperAnimatedText("Ailes Mentales"),
                   ],
                   onTap: (){
                     print("Tap Event");

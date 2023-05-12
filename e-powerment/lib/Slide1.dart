@@ -56,7 +56,7 @@ class _Slide1State extends State<Slide1> {
                                   height:200 ),
                              RichText(
                                 text:  const TextSpan(
-                                  text: 'Bienenue dans \n',
+                                  text: 'Bienvenue dans \n',
                                   style: TextStyle(color: Colors.white , fontSize: 40 , fontWeight: FontWeight.bold),
 
                                   /*defining default style is optional */

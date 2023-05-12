@@ -8,19 +8,38 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 
-class PseudoPage extends StatelessWidget {
+class PseudoPage extends StatefulWidget {
   PseudoPage({Key? key, required this.index}) : super(key: key);
 
 
 
-  List<String> values = ['images/avatar01.jpg','images/pingouin.jpg','images/sun.jpg','images/burger.jpg','images/star.png','images/dinosaur.jpg'];
 final int index;
 
+  @override
+  State<PseudoPage> createState() => _PseudoPageState();
+}
+
+class _PseudoPageState extends State<PseudoPage> {
+  List<String> values = ['images/avatar01.jpg','images/pingouin.jpg','images/sun.jpg','images/burger.jpg','images/star.png','images/dinosaur.jpg'];
+
 bool isObscurePassword =true;
+
    TextEditingController myController = TextEditingController();
 
-  get currentStep => index;
+  get currentStep => widget.index;
+
   final _formKey = GlobalKey<FormState>();
+
+  final _focusNode = FocusNode();
+
+  bool _hasError = false;
+
+  @override
+  void dispose() {
+    myController.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +79,13 @@ bool isObscurePassword =true;
                                  blurRadius: 10,
                                  color: Colors.black.withOpacity(0.1)
                                ),
-                              
+
                              ],
                              shape: BoxShape.circle,
                              image:  DecorationImage(
 
                                fit: BoxFit.cover,
-                               image:AssetImage(values[index]),
+                               image:AssetImage(values[widget.index]),
                                ) ,
                              )
                            ),
@@ -154,7 +173,7 @@ bool isObscurePassword =true;
                   String value = myController.text;
                    Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                                         return    Welcome(value: value, index: index) ;
+                                         return    Welcome(value: value, index: widget.index) ;
                                                        },),);
 
                          }
@@ -168,6 +187,7 @@ bool isObscurePassword =true;
 
     );
   }
+
   Widget buildTextField( String placeholder ) {
     return  Padding(
         padding: const EdgeInsets.all( 50),
@@ -175,55 +195,45 @@ bool isObscurePassword =true;
         key: _formKey,
 
         child: TextFormField(
-
           controller: myController,
-
+          focusNode: _focusNode,
           onSaved: (String? value){
             String value = myController.text;
             print('La valeur saisie est : $value');
           },
           decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(left: 20),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: _hasError ? Colors.red : Colors.grey,
+                ),
+                borderRadius: BorderRadius.circular(70.0),
 
-          contentPadding: const EdgeInsets.only( left: 20),
-
-
-            enabledBorder:   OutlineInputBorder(
-              borderRadius: BorderRadius.circular(70),
-              borderSide: const BorderSide(
-                color: Colors.white,
-                width: 1.5
-
-              )
-            ),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(70),
-              borderSide: BorderSide(
-                color: Colors.grey.shade400
-              )
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Colors.red,
-                
               ),
-              borderRadius: BorderRadius.circular(70)
-            ),
-            fillColor: Colors.grey.shade200,
-            filled: true,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle:  TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey.shade700
-            )
+              focusedBorder:   OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Color(0xffA49BEC),
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(70.0),
 
+
+              ),
+              fillColor: Colors.grey.shade200,
+              filled: true,
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              hintText: placeholder,
+              hintStyle: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey.shade700
+              )
           ),
           validator: (String? value) =>
           value != null && value.isEmpty ? 'Veuillez saisir du texte': null,
-
-
         ),
+
+
       ),
     );
 

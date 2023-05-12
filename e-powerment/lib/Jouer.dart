@@ -1,5 +1,8 @@
-import 'package:e_empowerment/Niveaux.dart';
+
+
 import 'package:e_empowerment/Slide5.dart';
+import 'package:e_empowerment/notes_page.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau1/Qualit%C3%A9/swipe.dart';
 
 import 'package:flutter/material.dart';
 
@@ -90,7 +93,8 @@ class _JouerState extends State<Jouer> {
                           onPressed: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                              return   const Slide5();
+                             return    Swipe();
+                              //return NotesPage();
                             },),);
                           },
                           child: const Text('Jouer')),

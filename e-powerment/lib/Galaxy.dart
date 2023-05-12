@@ -173,10 +173,7 @@ class _GalaxyState extends State<Galaxy> {
                                 alignment: const Alignment(0.9,-0.9),
                                 child: GestureDetector(
                                   onTap: (){
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => Slide1()),
-                                    );
+
                                   },
                                   child: Container(
 
@@ -299,10 +296,10 @@ class _GalaxyState extends State<Galaxy> {
             icon: Icons.navigate_next,
             onPressed:(){
 
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                return   const Galaxy();
-              },),);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Slide1()),
+              );
             },
 
           ),
