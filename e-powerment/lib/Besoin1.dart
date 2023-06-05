@@ -37,10 +37,10 @@ final _controller =PageController();
           children: [
 
              Padding(
-               padding: const EdgeInsets.only(top: 60,left: 25,right: 25),
+               padding: const EdgeInsets.only(top: 60,left: 50,right: 50),
                child: RichText(
                   text:  const TextSpan(
-                    text: 'Quels sont mes besoins ?\nJe ne suis pas obligé.e de sélectionner tous\nmes besoins : je peux choisir ceux qui\ncomptent le plus pour moi en ce\nmoment, ceux qui me semblent plus\ndurs à communiquer...',
+                    text: 'Quels sont tes besoins ? choisis ceux qui comptent le plus pour toi en ce moment, ceux qui sont le plus durs à communiquer en ce moment.',
                     style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                     /*defining default style is optional */

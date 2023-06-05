@@ -12,7 +12,7 @@ class B2 extends StatefulWidget {
 }
 
 class _B2State extends State<B2> {
-  List<String> myList = ['Humanité', 'Partage', 'Soutien', 'Appartenanc' , 'Reconnaissance', 'Empathie' , 'Compréhension', 'Attention','Affection','Amitié','Câlins','Calme','Amour','Intimité','Écoute'];
+  List<String> myList = ['Partage', 'Soutien', 'Appartenance' , 'Reconnaissance', 'Empathie' , 'Compréhension', 'Attention','Affection','Amitié','Câlins','Calme','Amour','Intimité','Écoute'];
   late ScrollController _scrollController = ScrollController();
 
   Set<String> selectedItems = {};

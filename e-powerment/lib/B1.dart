@@ -12,12 +12,12 @@ class B1 extends StatefulWidget {
 }
 
 class _B1State extends State<B1> {
-  List<String> myList = ['Boire', 'Manger', 'S\'abriter', 'Se reposer' , 'Respirer', 'Contact/toucher' , 'Soins médicaux', 'Régulation de la température/m\'habiller en fonction de la température'];
+  List<String> myList = ['Boire', 'Manger à ma faim', 'S\'abriter', 'Se reposer'  , 'Soins médicaux', 'Régulation de la température/m\'habiller en fonction de la température'];
 
   late ScrollController _scrollController = ScrollController();
 
   Set<String> selectedItems = {};
-  late List<Besoin> Besoins;
+  late List<Besoin> Besoins = []; // Initialisation avec une liste vide
   Future<void> loadSelectedItems() async {
     final prefs = await SharedPreferences.getInstance();
     final savedItems = prefs.getStringList('selectedItems');
@@ -85,7 +85,7 @@ class _B1State extends State<B1> {
                         padding: EdgeInsets.all(10.0),
                         child: Align(
                             alignment: Alignment.topCenter,
-                            child: Text("SURVIE-CORPS",
+                            child: Text("Besoins physiques",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 30),
@@ -101,54 +101,57 @@ class _B1State extends State<B1> {
                           interactive: true,
                           thumbVisibility: true,
                           trackVisibility: true,
-                          child: ListView.builder(
-                            controller: _scrollController,
+                          child: SizedBox(
 
-                            itemCount: myList.length,
-                            itemBuilder: (context, index) {
-                              final item = myList[index];
-                              return InkWell(
-                                onTap: () async {
-                                  if (selectedItems.contains(item)) {
-                                    selectedItems.remove(item);
-                                    // Delete item from database
-                                    Besoin? besoin = await NotesDatabase.instance.getBesoinByValue(item);
-                                    if (besoin?.idBesoin != null) {
-                                      await NotesDatabase.instance.deleteB(besoin!.idBesoin!);
-                                      print("Deleted $item");
+                            child: ListView.builder(
+                              controller: _scrollController,
+
+                              itemCount: myList.length,
+                              itemBuilder: (context, index) {
+                                final item = myList[index];
+                                return InkWell(
+                                  onTap: () async {
+                                    if (selectedItems.contains(item)) {
+                                      selectedItems.remove(item);
+                                      // Delete item from database
+                                      Besoin? besoin = await NotesDatabase.instance.getBesoinByValue(item);
+                                      if (besoin?.idBesoin != null) {
+                                        await NotesDatabase.instance.deleteB(besoin!.idBesoin!);
+                                        print("Deleted $item");
+
+                                      }
+                                    } else {
+                                      selectedItems.add(item);
+                                      // Add item to database
+                                      final besoin = Besoin(
+                                        idBesoin: 01,
+                                        besoin: item,
+                                      );
+                                      await NotesDatabase.instance.createB(besoin);
+                                      print("Added $item");
 
                                     }
-                                  } else {
-                                    selectedItems.add(item);
-                                    // Add item to database
-                                    final besoin = Besoin(
-                                      idBesoin: 01,
-                                      besoin: item,
-                                    );
-                                    await NotesDatabase.instance.createB(besoin);
-                                    print("Added $item");
 
-                                  }
-
-                                  await saveSelectedItems();
-                                  setState(() {});
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 10.0,right: 10.0,top: 2),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: selectedItems.contains(item)
-                                          ? Colors.purple
-                                          : null,
-                                    ),
-                                    child: ListTile(
-                                      title: Text('-$item',style: TextStyle(color: selectedItems.contains(item)? Colors.white : Colors.black),),
+                                    await saveSelectedItems();
+                                    setState(() {});
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 10.0,right: 10.0,top: 2),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: selectedItems.contains(item)
+                                            ? Colors.purple
+                                            : null,
+                                      ),
+                                      child: ListTile(
+                                        title: Text('-$item',style: TextStyle(color: selectedItems.contains(item)? Colors.white : Colors.black),),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),

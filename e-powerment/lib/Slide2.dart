@@ -93,7 +93,7 @@ class _Slide2State extends State<Slide2> {
                           )
                       ),
                       const SizedBox(
-                          height:50 ),
+                          height:80 ),
                       TextButton(
 
                           style: TextButton.styleFrom(

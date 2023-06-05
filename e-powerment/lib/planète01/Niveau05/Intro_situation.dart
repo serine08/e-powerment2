@@ -62,16 +62,19 @@ class _IntroSituationState extends State<IntroSituation> {
                         height:200 ),
                     Align(
                       alignment: const Alignment(0,-0.5),
-                      child: RichText(
-                        text:  const TextSpan(
-                          text: 'Une limite, c’est une borne au-delà\nde laquelle ne peuvent aller ou s\'étendre\nune action, une influence, un état... Tes limites,\ncela concerne ce que tu acceptes\nou non de la part des personnes\nautour de toi ; le cadre dans\nlequel tu souhaites interagir avec des personnes.\nEntre faire passer les autres\navant soi, ou se faire passer soi\navant les autres, il est important\nde trouver le juste équilibre.\nOn a donc besoin de s’accorder du\ntemps pour se recentrer sur soi.',
-                          style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: RichText(
+                          text:  const TextSpan(
+                            text: 'Les limites définissent ce que j’accepte et ce que je n’accepte pas. Elles expriment mes besoins et mes attentes, elles m’aident à me sentir valorisé·e et respecté·e. Chaque personne a des limites différentes. C’est pour ça qu’il est important de les identifier et de les communiquer.',
+                            style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                          /*defining default style is optional */
+                            /*defining default style is optional */
 
+                          ),
+
+                          textAlign: TextAlign.center,
                         ),
-
-                        textAlign: TextAlign.center,
                       ),
                     ),
 

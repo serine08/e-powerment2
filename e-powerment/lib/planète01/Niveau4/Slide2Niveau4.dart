@@ -62,7 +62,7 @@ class _Slide2N4State extends State<Slide2N4> {
                       alignment: const Alignment(0,-0.1),
                       child: RichText(
                         text:  const TextSpan(
-                          text: 'J\'ai l\impression que quelque chose te\nfait réagir émotionnellement.\nIl ya plusieurs chemins possibles, déjà tu\npeux choisir entre ces deux options.',
+                          text: 'Pense à quelque-chose qui te fait réagir émotionnellement, à une situation qui te fait ressentir une émotion désagréable. Tu peux choisir entre ces deux options : ',
                           style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */
@@ -87,7 +87,7 @@ class _Slide2N4State extends State<Slide2N4> {
                             textStyle: const TextStyle(fontSize: 20),
                             elevation: 10,
                             backgroundColor: Colors.purple,
-                             fixedSize: const Size(150, 200),
+                             fixedSize: const Size(150, 141),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
                           ),
                           onPressed: (){
@@ -108,7 +108,7 @@ class _Slide2N4State extends State<Slide2N4> {
                             textStyle: const TextStyle(fontSize: 20),
                             elevation: 10,
                             backgroundColor: Colors.pink.shade300,
-                              fixedSize: const Size(150, 200),
+                              fixedSize: const Size(150, 141),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
                           ),
                           onPressed: (){

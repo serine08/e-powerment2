@@ -1,7 +1,7 @@
 import 'package:e_empowerment/Humeur.dart';
 import 'package:e_empowerment/Pens%C3%A9es.dart';
 import 'package:e_empowerment/Quality.dart';
-import 'package:e_empowerment/db_test.dart';
+import 'package:e_empowerment/TextField.dart';
 import 'package:e_empowerment/notes.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau03/BesoinModel.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau2/Competence.dart';
@@ -13,6 +13,7 @@ class NotesDatabase {
   static final NotesDatabase instance = NotesDatabase._init();
 
   static Database? _database;
+
 
   NotesDatabase._init();
 
@@ -55,15 +56,15 @@ class NotesDatabase {
 
 
     await db.execute('''
-CREATE TABLE $tablePensee ( 
-  ${PenseeFields.id} $idType, 
+    CREATE TABLE $tableTextField (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      quality TEXT,
+      description TEXT,
+      time TEXT
+    )
+  ''');
 
-  ${PenseeFields.RatingP} $integerType,
- 
-  ${PenseeFields.date} $textType
-  )
-  
-''');
+
 
 
 
@@ -255,6 +256,37 @@ else return humeur;
 
     return result.map((json) => Besoin.fromJson(json)).toList();
   }
+
+  Future<TextFieldData> createTextFieldData(String quality, String description) async {
+    final db = await instance.database;
+
+    final textFieldData = TextFieldData(
+      quality: quality,
+      description: description,
+      time: DateTime.now().toString(),
+    );
+
+    if (db.isOpen) {
+      final id = await db.insert(tableTextField, textFieldData.toJson());
+      return textFieldData.copy(id: id);
+    } else {
+      return textFieldData;
+    }
+  }
+
+
+  Future<List<TextFieldData>> readAllTextFieldData() async {
+    final db = await instance.database;
+
+    final orderBy = 'time ASC';
+    final result = await db.query(tableTextField, orderBy: orderBy);
+
+    return result.map((json) => TextFieldData.fromJson(json)).toList();
+  }
+
+
+
+
 /*------------------------------------------------------------------------------------------*/
 
   Future<Pensee> createP(Pensee pensee) async {

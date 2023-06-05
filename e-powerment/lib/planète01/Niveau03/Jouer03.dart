@@ -63,7 +63,7 @@ class _Jouer03State extends State<Jouer03> {
                       alignment: const Alignment(0,-0.5),
                       child: RichText(
                         text:  const TextSpan(
-                          text: 'Ici, tu peux apprendre à nommer\net identifier quels sont tes\nbesoins. Savoir quels sont ses\nbesoins, c’est une étape pour\npouvoir ensuite les respecter et\nles communiquer aux autres. On\na des besoins en commun et des\nbesoins particuliers ; des besoins\nqu’on connaît déjà et d’autres\nqu’on peut découvrir.',
+                          text: 'Ici, tu peux apprendre à nommer\net identifier tes besoins.\nSavoir quels sont ses\nbesoins, c’est une étape pour\npouvoir ensuite les respecter et\nles communiquer aux autres.',
                           style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */

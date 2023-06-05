@@ -54,7 +54,7 @@ class Slide6 extends StatelessWidget {
                       alignment: const Alignment(0,-0.5),
                       child: RichText(
                         text:  const TextSpan(
-                          text: 'Tu as peut-être des qualités qui n’étaient pas listées.\nTu peux les ajoutéer ici :',
+                          text: 'Tu as peut-être des qualités qui n’étaient pas listées.\nTu peux les ajouter ici :',
                           style: TextStyle(color: Colors.white , fontSize: 17 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */

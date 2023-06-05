@@ -110,66 +110,52 @@ class _CielCompetence02State extends State<CielCompetence02> {
               color: const Color(0xff000000).withOpacity(0.4),
             ),
           ),
-
-          Align(
-            alignment: const Alignment(0,0.7),
-
-            child: Container(
-
-                width: 161,
-                height: 161,
-                decoration:   const BoxDecoration(
-
-                  image: DecorationImage(
-                    image: AssetImage("images/momo.webp"),
-                    fit:BoxFit.cover,
-
-                  ),
-
-                  shape: BoxShape.rectangle,
-
-
-                )
+          const Positioned(
+            top: 220,
+            left: 40,
+            right: 40,
+            child: SpeechBubble(
+              text: 'Et voilà le ciel de tes compétences !\nC’est ce que tu sais faire et ce que tu\naimes faire, bravo ! Tu peux modifier\nle ciel en choisissant d’autres\ncompétences.',
+              backgroundColor: Colors.white,
+              textColor: Colors.black,
             ),
-
           ),
-
-
-
 
           Positioned(
-            top: 200,
-            left: 10,
-            right: 10,
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.6),
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(16),
-                  topLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
-
-                ),
-              ),
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-
-                  Text(
-                    'Et voilà le ciel de tes compétences !\nC’est ce que tu sais faire et ce que tu\naimes faire, bravo ! Tu peux modifier\nle ciel en choisissant d’autres\ncompétences. Tu peux retrouver ces\ncompétences derrière chacune des\nétoiles du jeu de grattage, dans ton menu principal.',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
+            top: 220,
+            left: 40,
+            right: 40,
+            child: CustomPaint(
+              painter: CirclePainter(
+                circleSizes: [16, 12, 8], // Modify the sizes here
+                circlePositions: [
+                  const Offset(160, 160), // Modify the positions here
+                  const Offset(130, 200),
+                  const Offset(100, 235),
                 ],
+                circleColor: Colors.white,
               ),
+              child: Container(),
             ),
           ),
 
 
 
-
+          // Image of the character
+          Align(
+            alignment: const Alignment(-0.5, 0.75),
+            child: Container(
+              width: 161,
+              height: 161,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("images/momo.webp"),
+                  fit: BoxFit.cover,
+                ),
+                shape: BoxShape.rectangle,
+              ),
+            ),
+          ),
           Align(
             alignment: const Alignment(0.9, 0.98),
             child: IconButton(
@@ -230,34 +216,71 @@ class _CielCompetence02State extends State<CielCompetence02> {
 
 
 }
-class TriangleBorder extends ShapeBorder {
-  const TriangleBorder();
+class SpeechBubble extends StatelessWidget {
+  final String text;
+  final Color backgroundColor;
+  final Color textColor;
+
+  const SpeechBubble({
+    Key? key,
+    required this.text,
+    this.backgroundColor = Colors.white,
+    this.textColor = Colors.black,
+  }) : super(key: key);
 
   @override
-  EdgeInsetsGeometry get dimensions => EdgeInsets.zero;
-
-  @override
-  ShapeBorder scale(double t) => TriangleBorder();
-
-  @override
-  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
-    return getOuterPath(rect, textDirection: textDirection);
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Text(
+            text,
+            style: TextStyle(color: textColor, fontSize: 16),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
   }
-
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    final path = Path();
-    path.moveTo(rect.bottomLeft.dx, rect.bottomLeft.dy);
-    path.lineTo(rect.bottomRight.dx, rect.bottomRight.dy);
-    path.lineTo(rect.bottomLeft.dx, rect.topRight.dy);
-    path.close();
-    return path;
-  }
-
-  @override
-  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {}
 }
+class CirclePainter extends CustomPainter {
+  final List<double> circleSizes;
+  final List<Offset> circlePositions;
+  final Color circleColor;
 
+  CirclePainter({required this.circleSizes, required this.circlePositions, required this.circleColor});
 
+  @override
+  void paint(Canvas canvas, Size size) {
+    for (int i = 0; i < circleSizes.length; i++) {
+      final circleSize = circleSizes[i];
+      final circlePosition = circlePositions[i];
 
+      final circlePaint = Paint()
+        ..color = circleColor
+        ..style = PaintingStyle.fill;
+
+      canvas.drawCircle(circlePosition, circleSize, circlePaint);
+    }
+  }
+  @override
+  bool shouldRepaint(CirclePainter oldPainter) {
+    return circleSizes != oldPainter.circleSizes ||
+        circlePositions != oldPainter.circlePositions ||
+        circleColor != oldPainter.circleColor;
+  }
+// Rest of the code...
+}
 

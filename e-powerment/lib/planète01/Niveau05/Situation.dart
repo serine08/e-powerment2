@@ -3,6 +3,7 @@ import 'package:e_empowerment/Besoin2.dart';
 
 
 import 'package:e_empowerment/Slide5.dart';
+import 'package:e_empowerment/notes_database.dart';
 import 'package:e_empowerment/notes_page.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Situation2.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
@@ -66,7 +67,7 @@ class Situation extends StatelessWidget {
                             alignment: const Alignment(0,-0.4),
                             child: RichText(
                               text:  const TextSpan(
-                                text: 'Je te propose de penser à une\nsituation d’inconfort, récente ou\npassée ; un cas d’interaction au\ncours duquel tu as eu des\ndifficultés, tu t’es senti.e mal à l’aise.',
+                                text: 'Pense à une situation où tu t’es senti·e mal à l’aise, à un échange avec une ou des personnes que tu as trouvé inconfortable, désagréable.',
                                 style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                                 /*defining default style is optional */
@@ -122,7 +123,7 @@ class Situation extends StatelessWidget {
                                   alignment: const Alignment(0,0.42),
                                   child: RichText(
                                     text:  const TextSpan(
-                                      text: 'Donne un nom à cette situation /\nà ce cas concret :',
+                                      text: 'Donne un nom à cette situation : ...',
                                       style: TextStyle(color: Colors.black , fontSize: 15 , fontWeight: FontWeight.bold),
 
                                       /*defining default style is optional */
@@ -163,18 +164,28 @@ class Situation extends StatelessWidget {
                             child: IconButton(
 
 
-                              onPressed: (){
+                              onPressed: () async {
+                              final form = _formKey.currentState;
+                              if (form != null && form.validate()) {
+                               form.save(); // Save the form data
+
+                               String textFieldValue = myController.text; // Retrieve the text field value
+                               if (textFieldValue.isNotEmpty) {
+                               final textFieldData = await NotesDatabase.instance.createTextFieldData("some quality", textFieldValue);
+                               print('Saved TextFieldData: $textFieldValue');
+                                }
                                 Navigator.push(context, MaterialPageRoute(builder: (context){
 
                                   return    Situation2();
-                                },),);
+                                },),);}
                               }, icon: const Icon(Icons.navigate_next),
                               iconSize: 40,
                               color: Colors.white,
 
 
                             ),
-                          )
+                          ),
+
                         ]
                     ),
 
@@ -231,7 +242,6 @@ class Situation extends StatelessWidget {
 
           onSaved: (String? value){
             String value = myController.text;
-            print('La valeur saisie est : $value');
           },
           decoration: InputDecoration(
 

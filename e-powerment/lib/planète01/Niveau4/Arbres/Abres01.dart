@@ -68,7 +68,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(0,-0.56),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Ronchon',
+                      text: 'Ronchon·ne',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -82,7 +82,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(-0.25,-0.45),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Irrité',
+                      text: 'Irrité·e',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -96,7 +96,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(0.3,-0.4),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Frustré',
+                      text: 'Frustré·e',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -111,7 +111,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(-0.55,-0.12),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Jaloux',
+                      text: 'Jaloux·se',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -125,7 +125,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(0.4,-0.05),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Enervé',
+                      text: 'Enervé·e',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -141,7 +141,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(-0.5,-0.3),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Dégoûté',
+                      text: 'Dégoûté·e',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -155,7 +155,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(0.1,-0.2),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Tendu',
+                      text: 'Tendu·e',
                       style: TextStyle(color: Color(0xffFEA9A9) , fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -169,7 +169,7 @@ class _Arbre01State extends State<Arbre01> {
                   alignment: const Alignment(0.7,-0.3),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Furieux',
+                      text: 'Furieux·se',
                       style: TextStyle(color: Color(0xffFEA9A9), fontSize: 24, fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */

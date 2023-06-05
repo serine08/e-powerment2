@@ -101,21 +101,23 @@ class _Slide1State extends State<Slide1> {
                                     ) ,
                                   )
                               ),const SizedBox(
-                                  height:60 ),
-                              TextButton(
+                                  height:80 ),
 
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.all(16.0),
-                                    textStyle: const TextStyle(fontSize: 20),
-                                  ),
-                                  onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                               TextButton(
 
-                                      return   const Slide2();
-                                    },),);
-                                  },
-                                  child: const Text('Toucher pour continuer'))
+                                    style: TextButton.styleFrom(
+                                      foregroundColor: Colors.white,
+                                      padding: const EdgeInsets.all(16.0),
+                                      textStyle: const TextStyle(fontSize: 20),
+                                    ),
+                                    onPressed: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                                        return   const Slide2();
+                                      },),);
+                                    },
+                                    child: const Text('Toucher pour continuer')),
+
                             ],
                           ),
                         ),

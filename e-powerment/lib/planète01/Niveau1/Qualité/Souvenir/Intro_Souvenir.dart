@@ -76,27 +76,14 @@ class IntroSouvenir extends StatelessWidget {
                             ),
 
                             width: 250,
-                            height: 300,
+                            height: 200,
 
                             child: Align(
-                                alignment:Alignment(0,-0.8),
+                                alignment:Alignment(0,-1),
                                 child: buildTextField('Toucher pour écrire...'))
                         ),
                       ),
-                      Align(
-                        alignment: const Alignment(-0.02,-0.35),
-                        child: RichText(
-                          text:  const TextSpan(
-                            text: 'Ecrire un souvenir',
-                            style: TextStyle(color: Colors.black , fontSize: 20 , fontWeight: FontWeight.bold),
 
-                            /*defining default style is optional */
-
-                          ),
-
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
                     ]
                 ),
 
@@ -117,24 +104,7 @@ class IntroSouvenir extends StatelessWidget {
 
                   ),
                 ),
-                Align(
-                  alignment: const Alignment(0,0.75),
-                  child: TextButton(
 
-                      style: TextButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.all(12),
-                          textStyle: const TextStyle(fontSize: 20),
-                          elevation: 10,
-                          backgroundColor: Colors.green,
-                          fixedSize: const Size(250, 70),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                      ),
-                      onPressed: (){
-
-                      },
-                      child: const Text('Enregistrer un souvenir',textAlign: TextAlign.center,)),
-                ),
 
                 Container(
 
@@ -150,7 +120,7 @@ class IntroSouvenir extends StatelessWidget {
                 ),
 
                 Align(
-                  alignment: const Alignment(0,0.75),
+                  alignment: const Alignment(0,0.8),
 
                   child: Container(
 
@@ -188,10 +158,10 @@ class IntroSouvenir extends StatelessWidget {
 
                 ),
                 Align(
-                  alignment: const Alignment(0,0.12),
+                  alignment: const Alignment(0,0.25),
                   child: RichText(
                     text:  const TextSpan(
-                      text: 'Pour écrire ou raconter un souvenir,\nclique sur l’une des qualités de ton ciel :\ntu peux écrire ou enregistrer un souvenir\nde la dernière fois que tu as fait preuve de\ncette qualité, ou qu’une personne t’a\ncomplimenté dessus. Tu peux retrouver\nces souvenirs derrière chacune des\nétoiles du jeu degrattage, dans ton menu\nprincipal.',
+                      text: 'Pour écrire ou raconter un souvenir,\nclique sur l’une des qualités :\nécris ou enregistre un souvenir\nde la dernière fois que tu as fait preuve de\ncette qualité, ou qu’une personne t’a\ncomplimenté dessus. Tu peux retrouver\nces souvenirs derrière chacune des\nétoiles du jeu de grattage, dans ton menu\nprincipal.',
                       style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
@@ -204,7 +174,7 @@ class IntroSouvenir extends StatelessWidget {
 
                 ),
                 Align(
-                  alignment: const Alignment(0,0.95),
+                  alignment: const Alignment(0,0.99),
                   child: TextButton(
 
                       style: TextButton.styleFrom(

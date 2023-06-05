@@ -62,16 +62,19 @@ class _Jouer05State extends State<Jouer05> {
                         height:200 ),
                     Align(
                       alignment: const Alignment(0,-0.5),
-                      child: RichText(
-                        text:  const TextSpan(
-                          text: 'Ici, tu pourras apprendre ce\nqu’est une limite et identifier\nquelles sont les tiennes.\nTu pourras apprendre à les identifier,\nles exprimer, les faire\nrespecter. Et si tes limites sont\nexprimées et respectées,\ntu pourras aussi mieux entendre\net respecter celles des autres. ',
-                          style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: RichText(
+                          text:  const TextSpan(
+                            text: 'Ici, tu pourras apprendre ce qu’est une limite. Tu pourras chercher à identifier les tiennes, les exprimer et les faire respecter',
+                            style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                          /*defining default style is optional */
+                            /*defining default style is optional */
 
+                          ),
+
+                          textAlign: TextAlign.center,
                         ),
-
-                        textAlign: TextAlign.center,
                       ),
                     ),
                     const SizedBox(

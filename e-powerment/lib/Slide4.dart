@@ -132,7 +132,7 @@ class _Slide4State extends State<Slide4> {
                     },
                     child: Container(
 
-                        width: 161,
+                      width: 161,
                         height: 161,
                         decoration:   BoxDecoration(
                           boxShadow: [

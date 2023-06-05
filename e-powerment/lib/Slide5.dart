@@ -121,7 +121,7 @@ TextEditingController myController = TextEditingController();
                       GestureDetector(
 
                         onTap: () async {
-                          value = "Attentionné.e";
+                          value = "Attentionné·e";
 
                           if (selectedItems.contains(value)) {
                             selectedItems.remove(value);
@@ -159,7 +159,7 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Attentionné.e") ? Colors.purple : null,
+                                  color: selectedItems.contains("Attentionné·e") ? Colors.purple : null,
 
 
                                 )
@@ -171,7 +171,7 @@ TextEditingController myController = TextEditingController();
 
                                 alignment:Alignment(0.82,-0.58),
 
-                                child: Text('Attentionné.e',style: TextStyle(color: selectedItems.contains("Attentionné.e") ? Colors.white :  Colors.black ,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Attentionné·e',style: TextStyle(color: selectedItems.contains("Attentionné·e") ? Colors.white :  Colors.black ,fontWeight: FontWeight.bold,fontSize: 15),)),
       ]
                         ),
                       ),
@@ -183,7 +183,7 @@ TextEditingController myController = TextEditingController();
                     GestureDetector(
 
                       onTap: () async {
-                        value = "Déterminé.e";
+                        value = "Déterminé·e";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -222,7 +222,7 @@ TextEditingController myController = TextEditingController();
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Déterminé.e") ? Colors.purple : null,
+                              color: selectedItems.contains("Déterminé·e") ? Colors.purple : null,
 
                             ),
                           ),
@@ -230,14 +230,14 @@ TextEditingController myController = TextEditingController();
                            Align(
                               alignment:Alignment(0.16,-0.33),
 
-                              child: Text('Déterminé.e',style: TextStyle(color: selectedItems.contains("Déterminé.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                              child: Text('Déterminé·e',style: TextStyle(color: selectedItems.contains("Déterminé·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
     ]
                       ),
                     ),
 
                     GestureDetector(
                       onTap: () async {
-                        value = "Créatif.ve";
+                        value = "Créatif·ve";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -276,14 +276,14 @@ TextEditingController myController = TextEditingController();
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Créatif.ve") ? Colors.purple : null,
+                              color: selectedItems.contains("Créatif·ve") ? Colors.purple : null,
                             ),
                           ),
                         ),
                            Align(
                               alignment:Alignment(-0.25,-0.54),
 
-                              child: Text('Créatif.ve',style: TextStyle(color: selectedItems.contains("Créatif.ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                              child: Text('Créatif·ve',style: TextStyle(color: selectedItems.contains("Créatif·ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                       ),
                     ),
@@ -396,7 +396,7 @@ TextEditingController myController = TextEditingController();
                     ),
                     GestureDetector(
                       onTap: () async {
-                        value = "Génereux.se";
+                        value = "Généreux·se";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -435,14 +435,14 @@ TextEditingController myController = TextEditingController();
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Génereux.se") ? Colors.purple : null,
+                              color: selectedItems.contains("Généreux·se") ? Colors.purple : null,
                             ),
                           ),
                         ),
                            Align(
                               alignment:Alignment(0,-0.06),
 
-                              child: Text('Génereux.se',style: TextStyle(color: selectedItems.contains("Génereux.se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                              child: Text('Généreux·se',style: TextStyle(color: selectedItems.contains("Généreux·se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                       ),
                     ),
@@ -502,7 +502,7 @@ TextEditingController myController = TextEditingController();
 
                         GestureDetector(
                           onTap: () async {
-                            value = "Indépendant.e";
+                            value = "Indépendant·e";
 
                             if (selectedItems.contains(value)) {
                               selectedItems.remove(value);
@@ -541,14 +541,14 @@ TextEditingController myController = TextEditingController();
                                       'images/nuage3.png',
                                       width: 130,
                                       height: 130,
-                                      color: selectedItems.contains("Indépendant.e") ? Colors.purple : null,
+                                      color: selectedItems.contains("Indépendant·e") ? Colors.purple : null,
                                     ),
                                   ),
                                 ),
                                  Align(
                                     alignment:Alignment(0,0.25),
 
-                                    child: Text('Indépendant.e',style: TextStyle(color: selectedItems.contains("Indépendant.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                    child: Text('Indépendant·e',style: TextStyle(color: selectedItems.contains("Indépendant·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                               ]
                           ),
                         ),
@@ -556,7 +556,7 @@ TextEditingController myController = TextEditingController();
 
                     GestureDetector(
                       onTap: () async {
-                        value = "Joyeux.se";
+                        value = "Joyeux·se";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -595,20 +595,20 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Joyeux.se") ? Colors.purple : null,
+                                  color: selectedItems.contains("Joyeux·se") ? Colors.purple : null,
                                 ),
                               ),
                             ),
                              Align(
                                 alignment:Alignment(-0.8,0.05),
 
-                                child: Text('Joyeux.se',style: TextStyle(color: selectedItems.contains("Joyeux.se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Joyeux·se',style: TextStyle(color: selectedItems.contains("Joyeux·se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                           ]
                       ),
                     ),
                     GestureDetector(
                       onTap: () async {
-                        value = "Organisé.e";
+                        value = "Organisé·e";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -647,20 +647,20 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Organisé.e") ? Colors.purple : null,
+                                  color: selectedItems.contains("Organisé·e") ? Colors.purple : null,
                                 ),
                               ),
                             ),
                              Align(
                                 alignment:Alignment(-0.76,0.37),
 
-                                child: Text('Organisé.e',style: TextStyle(color: selectedItems.contains("Organisé.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Organisé·e',style: TextStyle(color: selectedItems.contains("Organisé·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                           ]
                       ),
                     ),
                     GestureDetector(
                       onTap: () async {
-                        value = "Passionné.e";
+                        value = "Passionné·e";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -699,20 +699,20 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Passionné.e") ? Colors.purple : null,
+                                  color: selectedItems.contains("Passionné·e") ? Colors.purple : null,
                                 ),
                               ),
                             ),
                              Align(
                                 alignment:Alignment(0,0.5),
 
-                                child: Text('Passionné.e',style: TextStyle(color: selectedItems.contains("Passionné.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Passionné·e',style: TextStyle(color: selectedItems.contains("Passionné·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                           ]
                       ),
                     ),
                     GestureDetector(
                       onTap: () async{
-                        value = "Prévoyant.e";
+                        value = "Prévoyant·e";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -752,20 +752,20 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Prévoyant.e") ? Colors.purple : null,
+                                  color: selectedItems.contains("Prévoyant·e") ? Colors.purple : null,
                                 ),
                               ),
                             ),
                              Align(
                                 alignment:Alignment(0.8,0.42),
 
-                                child: Text('Prévoyant.e',style: TextStyle(color: selectedItems.contains("Prévoyant.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Prévoyant·e',style: TextStyle(color: selectedItems.contains("Prévoyant·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                           ]
                       ),
                     ),
                     GestureDetector(
                       onTap: () async{
-                        value = "Respectueux.se";
+                        value = "Respectueux·se";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -804,14 +804,14 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Respectueux.se") ? Colors.purple : null,
+                                  color: selectedItems.contains("Respectueux·se") ? Colors.purple : null,
                                 ),
                               ),
                             ),
                              Align(
                                 alignment:Alignment(0.78,0.68),
 
-                                child: Text('Respectueux.se',style: TextStyle(color: selectedItems.contains("Respectueux.se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Respectueux·se',style: TextStyle(color: selectedItems.contains("Respectueux·se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                           ]
                       ),
                     ),
@@ -869,7 +869,7 @@ TextEditingController myController = TextEditingController();
                     ),
                     GestureDetector(
                       onTap: ()async{
-                        value = "Sportif.ve";
+                        value = "Sportif·ve";
 
                         if (selectedItems.contains(value)) {
                           selectedItems.remove(value);
@@ -909,14 +909,14 @@ TextEditingController myController = TextEditingController();
                                   'images/nuage3.png',
                                   width: 130,
                                   height: 130,
-                                  color: selectedItems.contains("Sportif.ve") ? Colors.purple : null,
+                                  color: selectedItems.contains("Sportif·ve") ? Colors.purple : null,
                                 ),
                               ),
                             ),
                              Align(
                                 alignment:Alignment(-0.01,0.84),
 
-                                child: Text('Sportif.ve',style: TextStyle(color: selectedItems.contains("Sportif.ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                                child: Text('Sportif·ve',style: TextStyle(color: selectedItems.contains("Sportif·ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                           ]
                       ),
                     ),

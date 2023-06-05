@@ -61,7 +61,7 @@ class _JouerState extends State<Jouer> {
                       alignment: const Alignment(0,-0.5),
                       child: RichText(
                         text:  const TextSpan(
-                          text: 'Dans ce niveau tu vas pouvoir\nfaire la liste des qualités et peut-\netre en decouvrir de nouvelles.Il\nest important de connaitre ses\nqualités definissent qui on est,\nelles composentnotre nature\nprofonde.Le simple fait d\'exsiter\nnous garantit d\'etre doté de\nqualités ',
+                          text: 'Ici, tu vas pouvoir faire la liste de tes qualités et peut-être en découvrir de nouvelles. Il est important de connaître ses qualités. Les qualités définissent qui on est, elles composent notre nature profonde. Le simple fait d’exister nous garantit d’être doté de qualités.',
                           style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */

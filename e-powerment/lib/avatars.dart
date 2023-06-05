@@ -24,15 +24,20 @@ class _AvatarState extends State<Avatar> {
   late bool _isButtonDisabled;
   @override
   void initState() {
-    _isButtonDisabled = false;
+    _isButtonDisabled = true;
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _isButtonDisabled = true;
-
-    });
+  void _handleNextButton() {
+    if (selectedCard != -1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return PseudoPage(index: currentStep);
+        }),
+      );
+    }
   }
+
   @override
   Widget build(BuildContext context) {
 
@@ -129,6 +134,8 @@ class _AvatarState extends State<Avatar> {
                         setState(() {
                           currentStep = index;
                           selectedCard=index;
+                          _isButtonDisabled = selectedCard == -1;
+
                         }  );
 
 
@@ -184,13 +191,8 @@ class _AvatarState extends State<Avatar> {
 
 
 
-            onPressed:(){
+            onPressed: _isButtonDisabled ? null : _handleNextButton,
 
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                return   PseudoPage(index: currentStep);
-              },),);
-            },
 
           ),
 

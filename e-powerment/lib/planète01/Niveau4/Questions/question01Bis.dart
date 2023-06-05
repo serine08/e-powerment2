@@ -62,16 +62,19 @@ class _question01BisState extends State<question01Bis> {
                         height:200 ),
                     Align(
                       alignment: const Alignment(0,-0.5),
-                      child: RichText(
-                        text:  const TextSpan(
-                          text: 'Je te propose d’essayer de comprendre\nle besoin caché qui se trouve derrière\nton émotion. Quel est le besoin qui peut\naider à gérer l’émotion que tu penses\nressentir actuellement ?',
-                          style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: RichText(
+                          text:  const TextSpan(
+                            text: 'Je te propose d’essayer de trouver le besoin caché qui se trouve derrière ton émotion. Quel est le besoin qui peut aider à gérer l’émotion que tu penses ressentir actuellement ?',
+                            style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                          /*defining default style is optional */
+                            /*defining default style is optional */
 
+                          ),
+
+                          textAlign: TextAlign.center,
                         ),
-
-                        textAlign: TextAlign.center,
                       ),
                     ),
                     const SizedBox(
@@ -80,7 +83,7 @@ class _question01BisState extends State<question01Bis> {
                     const SizedBox(
                         height:50 ),
                     Align(
-                      alignment: const Alignment(0,0.94),
+                      alignment: const Alignment(0,0.99),
                       child: TextButton(
 
                           style: TextButton.styleFrom(

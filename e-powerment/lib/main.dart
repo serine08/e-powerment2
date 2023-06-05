@@ -1,14 +1,9 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:e_empowerment/pages/hidden_drawer.dart';
+
 import 'package:e_empowerment/pages/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'note_list.dart';
-import 'add_note.dart';
-import 'pages/homepage.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:provider/provider.dart';
-import 'package:e_empowerment/planète01/niveau01/data/models/menu_info.dart';
+
 
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
@@ -34,7 +29,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   MaterialApp(
-
       debugShowCheckedModeBanner: false,
       home:  OnBoardScreen(),
       builder: (context, child) {

@@ -13,7 +13,7 @@ class B5 extends StatefulWidget {
 }
 
 class _B5State extends State<B5> {
-    List<String> myList = ['Auto détermination', 'Espace/temps', 'Liberté', 'Indépendance' , 'Maîtrise', 'Solitude' , 'Affirmation de soi', ];
+    List<String> myList = ['Auto détermination',  'Liberté', 'Indépendance' , 'Maîtrise', 'Solitude' , 'Affirmation de soi', ];
     late ScrollController _scrollController = ScrollController();
 
   Set<String> selectedItems = {};

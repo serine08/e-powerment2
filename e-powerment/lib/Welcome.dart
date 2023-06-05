@@ -108,24 +108,24 @@ class Welcome extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 5, right: 5, top: 30, bottom: 30),
                   child: RichText(
                     text:  TextSpan(
-                      text: 'Enchanté  ',
+                      text: 'Enchanté',
                       style: const TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
                       children: <TextSpan>[
                         TextSpan(
-                            text: ' $value ', style:  const TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
+                            text: ' $value', style:  const TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
                         const TextSpan(
                             text: ' ! \n ', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
 
                         const TextSpan(
-                          text: '\n\nMoi, c\'est  ',
+                          text: '\n\nMoi, c\'est',
                           style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */
                           children: <TextSpan>[
                             TextSpan(
-                                text: ' POTO ', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
+                                text: ' POTO', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
                             TextSpan(
                                 text: ' je vais t\'accompagner dans cette exploration ', style: TextStyle( color:Colors.white ,fontSize:20, fontWeight: FontWeight.bold,)),
 

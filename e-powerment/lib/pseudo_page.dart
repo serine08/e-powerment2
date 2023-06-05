@@ -103,15 +103,15 @@ bool isObscurePassword =true;
                     height:30 ),
                   RichText(
                     text:    const TextSpan(
-                      text: 'Quel est le   ',
+                      text: 'Quel est le',
                       style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
 
                       /*defining default style is optional */
                       children: <TextSpan>[
                         TextSpan(
-                            text: ' Pseudonyme ', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
+                            text: ' Pseudonyme', style: TextStyle( color:Color(0xffA49BEC),fontSize:20,fontWeight: FontWeight.bold,)),
                         TextSpan(
-                            text: ' que tu souhaites utiliser ? ', style: TextStyle( color:Colors.white,fontSize:20,fontWeight: FontWeight.bold,)),
+                            text: ' que tu souhaites utiliser ?', style: TextStyle( color:Colors.white,fontSize:20,fontWeight: FontWeight.bold,)),
 
 
                       ],

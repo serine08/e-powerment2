@@ -17,6 +17,7 @@ class FinSouvenir extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final String text;
   bool _isFocused = false;
+  List<Map<String, dynamic>> media = [];
 
   @override
   Widget build(BuildContext context) {
@@ -107,27 +108,14 @@ class FinSouvenir extends StatelessWidget {
                                       ),
 
                                       width: 250,
-                                      height: 300,
+                                      height: 200,
 
                                       child: Align(
-                                          alignment:Alignment(0,-0.8),
+                                          alignment:Alignment(0,-1),
                                           child: buildTextField('Toucher pour écrire...'))
                                   ),
                                 ),
-                                Align(
-                                  alignment: const Alignment(-0.02,-0.35),
-                                  child: RichText(
-                                    text:  const TextSpan(
-                                      text: 'Ecrire un souvenir',
-                                      style: TextStyle(color: Colors.black , fontSize: 20 , fontWeight: FontWeight.bold),
 
-                                      /*defining default style is optional */
-
-                                    ),
-
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
                               ]
                           ),
 
@@ -148,41 +136,24 @@ class FinSouvenir extends StatelessWidget {
 
                             ),
                           ),
+
                           Align(
-                            alignment: const Alignment(0,0.8),
-                            child: TextButton(
+                            alignment:  const Alignment(0,0.6),
+                            child:   iconTextButton("Record a voice",
+                              Colors.red,
+                                  () async {
 
-                                style: TextButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.all(12),
-                                    textStyle: const TextStyle(fontSize: 20),
-                                    elevation: 10,
-                                    backgroundColor: Colors.green,
-                                    fixedSize: const Size(250, 50),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                                ),
-                                onPressed: (){
+                              },
+                              const Icon(
+                                Icons.mic,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              context,
+                              media, // Pass the media list
 
-                                },
-                                child: const Text('Enregistrer un souvenir',textAlign: TextAlign.center,)),
-                          ),
-                          Align(
-                            alignment: const Alignment(0,0.6),
-                            child: TextButton(
-
-                                style: TextButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.all(10),
-
-                                    elevation: 10,
-                                    backgroundColor: Colors.red,
-                                    fixedSize: const Size(250, 50),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                                ),
-                                onPressed: (){
-
-                                },
-                                child: const Icon(Icons.mic_none_outlined)),
+                            ),
+                            // child:  Icon(recorder.isRecording ? Icons.stop : Icons.mic)),
                           ),
 
 
@@ -227,7 +198,7 @@ class FinSouvenir extends StatelessWidget {
                             alignment: const Alignment(0,0),
                             child: RichText(
                               text:  const TextSpan(
-                                text: 'Bravo, le souvenir est enregistré !\nTu pourras le retrouver derrière\nune étoile du jeu degrattage,\ndans ton menu principal.',
+                                text: 'Bravo, le souvenir est enregistré !\nTu pourras le retrouver derrière\nune étoile du jeu de grattage,\ndans ton menu principal.',
                                 style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                                 /*defining default style is optional */
@@ -366,4 +337,43 @@ class FinSouvenir extends StatelessWidget {
     );
 
   }
+}
+Widget iconTextButton(String name, Color color, Function function, Icon icon,
+    BuildContext context, List<Map<String, dynamic>> media) {
+  return GestureDetector(
+      onTap: () {
+        function();
+      },
+      child:Container(
+        width: MediaQuery.of(context).size.width * 0.3,
+        child: Align(
+          alignment: const Alignment(0, 0.6),
+          child: SizedBox(
+            width: 100,
+            height: 80, // Adjust the height as needed
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: color,
+                    ),
+                    child: Center(child: icon),
+                  ),
+                ),
+
+                Text(name,style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+              ],
+            ),
+          ),
+        ),
+      )
+
+
+
+  );
 }

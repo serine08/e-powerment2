@@ -4,6 +4,7 @@ import 'package:e_empowerment/Slide5.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau03/Ciel_Besoin.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Arbres/IntroArbres.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Questions/question01.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Questions/question02.dart';
 
 import 'package:flutter/material.dart';
 
@@ -65,16 +66,19 @@ class _Slide1N4rougeState extends State<Slide1N4rouge> {
 
                     Align(
                       alignment: const Alignment(0,-0.4),
-                      child: RichText(
-                        text:  const TextSpan(
-                          text: 'Ces questions peuvent t\'aider à y voir\nplus clair, je te propose d\'en choisir une\n et d\'y répondre juste après',
-                          style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: RichText(
+                          text:  const TextSpan(
+                            text: 'Ces questions peuvent t’aider à y voir plus clair. Tu peux en choisir une et réfléchir à une réponse.',
+                            style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                          /*defining default style is optional */
+                            /*defining default style is optional */
 
+                          ),
+
+                          textAlign: TextAlign.center,
                         ),
-
-                        textAlign: TextAlign.center,
                       ),
                     ),
 
@@ -97,7 +101,7 @@ class _Slide1N4rougeState extends State<Slide1N4rouge> {
                                 textStyle: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold),
                                 elevation: 10,
                                 backgroundColor: Colors.white38,
-                                fixedSize: const Size(380, 60),
+                                fixedSize: const Size(380, 72),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))
                             ),
                             onPressed: (){
@@ -134,7 +138,7 @@ class _Slide1N4rougeState extends State<Slide1N4rouge> {
                                   textStyle: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold),
                                   elevation: 10,
                                   backgroundColor: Colors.white38,
-                                  fixedSize: const Size(380, 70),
+                                  fixedSize: const Size(380, 72),
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))
                               ),
                               onPressed: (){
@@ -157,7 +161,7 @@ class _Slide1N4rougeState extends State<Slide1N4rouge> {
                               padding: const EdgeInsets.all(12),
                               textStyle: const TextStyle(fontSize: 20),
                               elevation: 10,
-                              backgroundColor: Colors.red,
+                              backgroundColor: Colors.purple,
                               fixedSize: const Size(150, 100),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
                           ),
@@ -178,7 +182,7 @@ class _Slide1N4rougeState extends State<Slide1N4rouge> {
                               padding: const EdgeInsets.all(12),
                               textStyle: const TextStyle(fontSize: 20),
                               elevation: 10,
-                              backgroundColor: Colors.green,
+                              backgroundColor: Colors.pink.shade300,
                               fixedSize: const Size(150, 100),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
                           ),
@@ -232,7 +236,7 @@ class _Slide1N4rougeState extends State<Slide1N4rouge> {
                       else if (index==2){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                          return    question01();
+                          return    question02();
                         },),);
                       }
 

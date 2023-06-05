@@ -1,9 +1,6 @@
-import 'package:e_empowerment/Besoin1.dart';
-import 'package:e_empowerment/Besoin2.dart';
 
-
-import 'package:e_empowerment/Slide5.dart';
-import 'package:e_empowerment/notes_page.dart';
+import 'package:e_empowerment/TextField.dart';
+import 'package:e_empowerment/notes_database.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Questions/question01Bis.dart';
 
@@ -19,6 +16,8 @@ class question01 extends StatelessWidget {
 
   TextEditingController myController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +85,7 @@ class question01 extends StatelessWidget {
 
 
                           Align(
-                            alignment: Alignment(0,0),
+                            alignment: const Alignment(0,0),
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30.0),
@@ -94,7 +93,7 @@ class question01 extends StatelessWidget {
                               ),
 
                               width: 250,
-                              height: 300,
+                              height: 200,
 
                                   child: buildTextField('Toucher pour écrire...')
                             ),
@@ -107,18 +106,30 @@ class question01 extends StatelessWidget {
                       child: IconButton(
 
 
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                        onPressed: () async {
+                                     final form = _formKey.currentState;
+                                     if (form != null && form.validate()) {
+                                     form.save(); // Save the form data
 
-                            return    question01Bis();
-                          },),);
-                        }, icon: const Icon(Icons.navigate_next),
-                        iconSize: 40,
-                        color: Colors.white,
+                                     String textFieldValue = myController.text; // Retrieve the text field value
+                                     if (textFieldValue.isNotEmpty) {
+                                     final textFieldData = await NotesDatabase.instance.createTextFieldData("some quality", textFieldValue);
+                                     print('Saved TextFieldData: $textFieldValue');
+                                        }
+
+                                     Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                                     return    question01Bis();
+                                    },),);
+                                    }
+                                     }, icon: const Icon(Icons.navigate_next),
+                                        iconSize: 40,
+                                   color: Colors.white,
 
 
                       ),
-                    )
+                    ),
+
                   ]
               ),
 

@@ -42,7 +42,7 @@ class Inserer extends StatelessWidget {
                       alignment: const Alignment(0,-0.5),
                       child: RichText(
                         text:  const TextSpan(
-                          text: 'Tu as peut-être des compétences qui\nn’étaient pas listées.\nTu peux les ajoutéer ici  :',
+                          text: 'Tu as sûrement des compétences qui\nn’étaient pas listées.\nTu peux les ajoutéer ici  :',
                           style: TextStyle(color: Colors.white , fontSize: 17 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */

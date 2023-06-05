@@ -1,7 +1,6 @@
 
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Limitom%C3%A8tre.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Questions/question01Bis.dart';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,12 +23,24 @@ class _Situation3State extends State<Situation3> {
 
   late SharedPreferences _prefs;
 
+  int _selectedContainer = -1;
+  double _initialBorderWidth = 6.0;
+  double _selectedBorderWidth = 16.0;
+
+
+  void _handleContainerTap(int index) {
+    setState(() {
+      _selectedContainer = index;
+    });
+    print('Conteneur tapé : $index');
+  }
 
 
   @override
   void initState() {
     super.initState();
   }
+  // Méthode pour afficher l'index du conteneur dans la console
 
   @override
   Widget build(BuildContext context) {
@@ -85,118 +96,148 @@ class _Situation3State extends State<Situation3> {
 
 
                           Align(
-                            alignment: const Alignment(-0.5,-0.6),
-                            child: Container(
-                              decoration:  BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.orange, // Change the border color here
-                                  width: 8.0,
-                                ),
+                            alignment: const Alignment(-0.5,-0.1),
+                            child: GestureDetector(
+                              onTap: () => _handleContainerTap(0), // Appeler _handleContainerTap avec l'index correspondant
 
-                                color: Colors.transparent,
-
-                                shape: BoxShape.circle
-                              ),
-
-                              width: 150,
-                              height: 130,
-                              child: const Center(child: Text("Physique",style: TextStyle(color: Colors.orange,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
-                            ),
-                          ),
-
-                          Align(
-                            alignment: const Alignment(0.4,-0.6),
-                            child: Container(
-                              decoration:  BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.yellow, // Change the border color here
-                                  width: 8.0,
-                                ),
-                                color: Colors.transparent,
-                                shape: BoxShape.circle
-                              ),
-
-                              width: 150,
-                              height: 130,
-                              child: const Center(child: Text("Sexuelle",style: TextStyle(color: Colors.yellow,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
-                            ),
-                          ),
-                          Align(
-                            alignment: const Alignment(0.8,-0.22),
-                            child: Container(
-
-                              decoration:  BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.purple, // Change the border color here
-                                  width: 8.0,
-                                ),
-                                color: Colors.transparent,
-                                shape: BoxShape.circle
-                              ),
-
-                              width: 150,
-                              height: 130,
-                              child: const Center(child:  Text("Matérielle",style: TextStyle(color: Colors.purple,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
-                            ),
-                          ),
-
-                          Align(
-                            alignment: const Alignment(0.4,0.15),
-
-                            // Call _changeColor method when container is tapped
                               child: Container(
                                 decoration:  BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.lightGreen, // Change the border color here
-                                    width: 8.0,
-                                  ),
-                                  color: Colors.transparent,
-                                  shape: BoxShape.circle
+                                    border: Border.all(
+                                      color: Colors.orange, // Change the border color here
+                                      width: _selectedContainer == 0
+                                          ? _selectedBorderWidth
+                                          : _initialBorderWidth,                                    ),
+
+                                    color: Colors.transparent,
+
+                                    shape: BoxShape.circle
                                 ),
 
-                                width: 150,
-                                height: 130,
-                                child:  Center(child: Text("Mentale",style: TextStyle(color: Colors.lightGreen,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                                width: 160,
+                                height: 160,
+                                child: const Center(child: Text("Physique",style: TextStyle(color: Colors.orange,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
                               ),
-
-                          ),
-
-                          Align(
-                            alignment: const Alignment(-0.9,-0.22),
-                            child: Container(
-
-                              decoration:  BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.red, // Change the border color here
-                                    width: 8.0,
-                                  ),
-                                  color: Colors.transparent,
-                                  shape: BoxShape.circle
-                              ),
-
-                              width: 150,
-                              height: 130,
-                              child: const Center(child:  Text("Emotionnelle",style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
                             ),
                           ),
 
                           Align(
-                            alignment: const Alignment(-0.5,0.15),
+                            alignment: const Alignment(0.4,-0.1),
+                            child: GestureDetector(
+                              onTap: () => _handleContainerTap(1), // Appeler _handleContainerTap avec l'index correspondant
+
+                              child: Container(
+                                decoration:  BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.yellow, // Change the border color here
+                                      width: _selectedContainer == 1
+                                          ? _selectedBorderWidth
+                                          : _initialBorderWidth,                                    ),
+                                    color: Colors.transparent,
+                                    shape: BoxShape.circle
+                                ),
+
+                                width: 160,
+                                height: 160,
+                                child: const Center(child: Text("Sexuelle",style: TextStyle(color: Colors.yellow,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const Alignment(0.8,0.3),
+                            child: GestureDetector(
+                              onTap: () => _handleContainerTap(2), // Appeler _handleContainerTap avec l'index correspondant
+
+                              child: Container(
+
+                                decoration:  BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.purple, // Change the border color here
+                                      width: _selectedContainer == 2
+                                          ? _selectedBorderWidth
+                                          : _initialBorderWidth,                                    ),
+                                    color: Colors.transparent,
+                                    shape: BoxShape.circle
+                                ),
+
+                                width: 160,
+                                height: 160,
+                                child: const Center(child:  Text("Matérielle",style: TextStyle(color: Colors.purple,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
+                              ),
+                            ),
+                          ),
+
+                          Align(
+                            alignment: const Alignment(0.4,0.7),
 
                             // Call _changeColor method when container is tapped
-                            child: Container(
-                              decoration:  BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.lightBlue, // Change the border color here
-                                    width: 8.0,
-                                  ),
-                                  color: Colors.transparent,
-                                  shape: BoxShape.circle
-                              ),
+                            child: GestureDetector(
+                              onTap: () => _handleContainerTap(3), // Appeler _handleContainerTap avec l'index correspondant
 
-                              width: 150,
-                              height: 130,
-                              child:  Center(child: Text("Spirituelle",style: TextStyle(color: Colors.lightBlue,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                              child: Container(
+                                decoration:  BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.lightGreen, // Change the border color here
+                                      width: _selectedContainer == 3
+                                          ? _selectedBorderWidth
+                                          : _initialBorderWidth,                                    ),
+                                    color: Colors.transparent,
+                                    shape: BoxShape.circle
+                                ),
+
+                                width: 160,
+                                height: 160,
+                                child:  Center(child: Text("Mentale",style: TextStyle(color: Colors.lightGreen,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                              ),
+                            ),
+
+                          ),
+
+                          Align(
+                            alignment: const Alignment(-0.9,0.3),
+                            child: GestureDetector(
+                              onTap: () => _handleContainerTap(4), // Appeler _handleContainerTap avec l'index correspondant
+
+                              child: Container(
+
+                                decoration:  BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.red, // Change the border color here
+                                      width: _selectedContainer == 4
+                                          ? _selectedBorderWidth
+                                          : _initialBorderWidth,                                    ),
+                                    color: Colors.transparent,
+                                    shape: BoxShape.circle
+                                ),
+
+                                width: 160,
+                                height: 160,
+                                child: const Center(child:  Text("Emotionnelle",style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center)),
+                              ),
+                            ),
+                          ),
+
+                          Align(
+                            alignment: const Alignment(-0.5,0.7),
+
+                            // Call _changeColor method when container is tapped
+                            child: GestureDetector(
+                              onTap: () => _handleContainerTap(5), // Appeler _handleContainerTap avec l'index correspondant
+
+                              child: Container(
+                                decoration:  BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.lightBlue, // Change the border color here
+                                      width: _selectedContainer == 5
+                                          ? _selectedBorderWidth
+                                          : _initialBorderWidth,                                    ),
+                                    color: Colors.transparent,
+                                    shape: BoxShape.circle
+                                ),
+
+                                width: 160,
+                                height: 160,
+                                child:  Center(child: Text("Spirituelle",style: TextStyle(color: Colors.lightBlue,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                              ),
                             ),
 
                           ),
@@ -207,17 +248,20 @@ class _Situation3State extends State<Situation3> {
 
 
                           Align(
-                            alignment: const Alignment(0,0.7),
-                            child: RichText(
-                              text:  const TextSpan(
-                                text: 'Dans cette situation inconfortable, une de tes\nlimites a peut-être été franchie. Parmi ces\nlimites, pourrais-tu choisir celle qui\ncorrespond le plus à ta situation ?',
-                                style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
+                            alignment: const Alignment(0,-0.6),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: RichText(
+                                text:  const TextSpan(
+                                  text: 'Peut-être que cette situation était un moment désagréable pour toi car une de tes limites a été franchie. Saurais-tu dire de quel ordre était cette limite ?',
+                                  style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                                /*defining default style is optional */
+                                  /*defining default style is optional */
 
+                                ),
+
+                                textAlign: TextAlign.center,
                               ),
-
-                              textAlign: TextAlign.center,
                             ),
                           ),
 

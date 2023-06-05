@@ -1,21 +1,21 @@
 import 'dart:math';
 
+import 'package:e_empowerment/Besoin1.dart';
 import 'package:e_empowerment/Quality.dart';
 
 import 'package:e_empowerment/notes_database.dart';
+import 'package:e_empowerment/notes_page.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau03/BesoinModel.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau03/Besoin_Card_Widget.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau1/Qualit%C3%A9/Souvenir/Intro_Souvenir.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau1/Qualit%C3%A9/Souvenir/Quality_card_widget2.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau1/Qualit%C3%A9/Souvenir/Souvenir2.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau2/Competence.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau2/Competence_card_widget.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/page_niveau.dart';
 
 import 'package:e_empowerment/widget/quality_card_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-
 
 
 
@@ -54,15 +54,7 @@ class _CielBesoinState extends State<CielBesoin> {
     // Do something with the tapped note here
     print('Tapped note: ${note.besoin}');
 
-
-
   }
-
-  void refreshNotesList() {
-    setState(() {});
-  }
-
-
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -100,7 +92,6 @@ class _CielBesoinState extends State<CielBesoin> {
                 )
                     : buildNotes(handleNoteTap),
               ),
-
             ),
 
 
@@ -110,7 +101,6 @@ class _CielBesoinState extends State<CielBesoin> {
 
 
                 onPressed: (){
-
                   Navigator.push(context, MaterialPageRoute(builder: (context){
 
                     return    page_niveau();
@@ -131,42 +121,45 @@ class _CielBesoinState extends State<CielBesoin> {
 
 
 
-  Widget buildNotes(Function(Besoin) onNoteTap) {
+  Widget buildNotes(p) {
     final List<StaggeredTile> _staggeredTiles = List.generate(
       notes.length,
           (index) => StaggeredTile.count(
-        Random().nextInt(2) + 1,
+        Random().nextInt(2) +1,
         Random().nextInt(2) + 1,
       ),
     );
+    final scrollController = ScrollController();
 
     return Align(
       alignment: Alignment.center,
       child: Scrollbar(
-        child: ListView(
-          children: [
-            StaggeredGridView.countBuilder(
-              padding: const EdgeInsets.all(6),
-              itemCount: notes.length,
-              staggeredTileBuilder: (index) => _staggeredTiles[index],
-              crossAxisCount: 4,
-              itemBuilder: (context, index) {
-                final note = notes[index];
-                return Container(
-                  child: BesoinCardWidget(
-                    note: note,
-                    index: index,
-                    onNoteTap: (Besoin) {},
-                    refreshNotesList: () {
-                      refreshNotes();
-                    },
-                  ),
-                );
-              },
-            ),
-          ],
+        thickness: 8,
+        controller: scrollController,
+        scrollbarOrientation: ScrollbarOrientation.right,
+        interactive: true,
+        thumbVisibility: true,
+        trackVisibility: true,
+        child: StaggeredGridView.countBuilder(
+          controller: scrollController,
+          padding: const EdgeInsets.all(6),
+          itemCount: notes.length,
+          staggeredTileBuilder: (index) => _staggeredTiles[index],
+          crossAxisCount: 4,
+          itemBuilder: (context, index) {
+            final note = notes[index];
+            return Container(
+              child: BesoinCardWidget(
+                note: note,
+                index: index,
+                onNoteTap: (Besoin ) {handleNoteTap(note); },
+                refreshNotesList: () {  },
+              ),
+            );
+          },
         ),
       ),
+
     );
   }
 

@@ -1,11 +1,9 @@
 import 'package:e_empowerment/Quality.dart';
-import 'package:e_empowerment/Slide1.dart';
 import 'package:e_empowerment/notes_database.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau1/page_niveau1.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
+
 import 'package:flutter/widgets.dart';
 import 'dart:async';
 
@@ -124,7 +122,7 @@ class _Slide5_3State extends State<Slide5_3> {
 
                 GestureDetector(
                   onTap: () async {
-                    value = "Courageux.se";
+                    value = "Courageux·se";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -162,7 +160,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Courageux.se") ? Colors.purple : null,
+                              color: selectedItems.contains("Courageux·se") ? Colors.purple : null,
 
                             )
 
@@ -172,7 +170,7 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0.82,-0.58),
 
-                            child: Text('Courageux.se',style: TextStyle(color: selectedItems.contains("Courageux.se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Courageux·se',style: TextStyle(color: selectedItems.contains("Courageux·se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
@@ -183,7 +181,7 @@ class _Slide5_3State extends State<Slide5_3> {
 
                 GestureDetector(
                   onTap: () async {
-                    value = "Débrouillard.e";
+                    value = "Débrouillard·e";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -222,7 +220,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Débrouillard.e") ? Colors.purple : null,
+                              color: selectedItems.contains("Débrouillard·e") ? Colors.purple : null,
 
                             ),
                           ),
@@ -230,14 +228,14 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0.16,-0.33),
 
-                            child: Text('Débrouillard.e',style: TextStyle(color: selectedItems.contains("Débrouillard.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Débrouillard·e',style: TextStyle(color: selectedItems.contains("Débrouillard·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
 
                 GestureDetector(
                   onTap: () async {
-                    value = "Doux.ce";
+                    value = "Doux·ce";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -276,7 +274,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Doux.ce") ? Colors.purple : null,
+                              color: selectedItems.contains("Doux·ce") ? Colors.purple : null,
 
                             ),
                           ),
@@ -284,13 +282,13 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(-0.25,-0.54),
 
-                            child: Text('Doux.ce',style: TextStyle(color: selectedItems.contains("Doux.ce") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Doux·ce',style: TextStyle(color: selectedItems.contains("Doux·ce") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Festif.ve";
+                    value = "Festif·ve";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -332,7 +330,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Festif.ve") ? Colors.purple : null,
+                              color: selectedItems.contains("Festif·ve") ? Colors.purple : null,
 
                             ),
                           ),
@@ -340,13 +338,13 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(-0.7,-0.26),
 
-                            child: Text('Festif.ve',style: TextStyle(color: selectedItems.contains("Festif.ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Festif·ve',style: TextStyle(color: selectedItems.contains("Festif·ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Fort.e";
+                    value = "Fort·e";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -385,7 +383,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Fort.e") ? Colors.purple : null,
+                              color: selectedItems.contains("Fort·e") ? Colors.purple : null,
 
                             ),
                           ),
@@ -393,7 +391,7 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0.7,-0.165),
 
-                            child: Text('Fort.e',style: TextStyle(color: selectedItems.contains("Fort.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Fort·e',style: TextStyle(color: selectedItems.contains("Fort·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
@@ -452,7 +450,7 @@ class _Slide5_3State extends State<Slide5_3> {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Impulsif.ve";
+                    value = "Impulsif·ve";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -491,7 +489,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Impulsif.ve") ? Colors.purple : null,
+                              color: selectedItems.contains("Impulsif·ve") ? Colors.purple : null,
 
                             ),
                           ),
@@ -499,7 +497,7 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0.68,0.12),
 
-                            child: Text('Impulsif.ve',style: TextStyle(color: selectedItems.contains("Impulsif.ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Impulsif·ve',style: TextStyle(color: selectedItems.contains("Impulsif·ve") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
 
                   ),
@@ -507,7 +505,7 @@ class _Slide5_3State extends State<Slide5_3> {
 
                 GestureDetector(
                   onTap: () async {
-                    value = "Joueur.se";
+                    value = "Joueur·se";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -546,7 +544,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Joueur.se") ? Colors.purple : null,
+                              color: selectedItems.contains("Joueur·se") ? Colors.purple : null,
 
                             ),
                           ),
@@ -554,7 +552,7 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0,0.25),
 
-                            child: Text('Joueur.se',style: TextStyle(color: selectedItems.contains("Joueur.se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Joueur·se',style: TextStyle(color: selectedItems.contains("Joueur·se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
@@ -615,7 +613,7 @@ class _Slide5_3State extends State<Slide5_3> {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Ouvert.e";
+                    value = "Ouvert·e";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -654,7 +652,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Ouvert.e") ? Colors.purple : null,
+                              color: selectedItems.contains("Ouvert·e") ? Colors.purple : null,
 
                             ),
                           ),
@@ -662,7 +660,7 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(-0.76,0.37),
 
-                            child: Text('Ouvert.e',style: TextStyle(color: selectedItems.contains("Ouvert.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Ouvert·e',style: TextStyle(color: selectedItems.contains("Ouvert·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
@@ -721,7 +719,7 @@ class _Slide5_3State extends State<Slide5_3> {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Rationnel.le";
+                    value = "Rationnel·le";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -754,7 +752,7 @@ class _Slide5_3State extends State<Slide5_3> {
                           alignment: const Alignment(0.9,0.5),
                           child: GestureDetector(
                             onTap: () async {
-                              value = "Rationnel.le";
+                              value = "Rationnel·le";
 
                               if (selectedItems.contains(value)) {
                                 selectedItems.remove(value);
@@ -784,7 +782,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Rationnel.le") ? Colors.purple : null,
+                              color: selectedItems.contains("Rationnel·le") ? Colors.purple : null,
 
                             ),
                           ),
@@ -792,13 +790,13 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0.8,0.42),
 
-                            child: Text('Rationnel.le',style: TextStyle(color: selectedItems.contains("Rationnel.le") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Rationnel·le',style: TextStyle(color: selectedItems.contains("Rationnel·le") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Rigolo.te";
+                    value = "Rigolo·te";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -831,7 +829,7 @@ class _Slide5_3State extends State<Slide5_3> {
                           alignment: const Alignment(0.8,0.81),
                           child: GestureDetector(
                             onTap: () async {
-                              value = "Rigolo.te";
+                              value = "Rigolo·te";
 
                               if (selectedItems.contains(value)) {
                                 selectedItems.remove(value);
@@ -861,7 +859,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Rigolo.te") ? Colors.purple : null,
+                              color: selectedItems.contains("Rigolo·te") ? Colors.purple : null,
 
                             ),
                           ),
@@ -869,13 +867,13 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(0.68,0.68),
 
-                            child: Text('Rigolo.te',style: TextStyle(color: selectedItems.contains("Rigolo.te") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Rigolo·te',style: TextStyle(color: selectedItems.contains("Rigolo·te") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Spontané.e";
+                    value = "Spontané·e";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -908,7 +906,7 @@ class _Slide5_3State extends State<Slide5_3> {
                           alignment: const Alignment(-0.85,0.84),
                           child: GestureDetector(
                             onTap: () async {
-                              value = "Spontané.e";
+                              value = "Spontané·e";
 
                               if (selectedItems.contains(value)) {
                                 selectedItems.remove(value);
@@ -938,7 +936,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Spontané.e") ? Colors.purple : null,
+                              color: selectedItems.contains("Spontané·e") ? Colors.purple : null,
 
                             ),
                           ),
@@ -946,13 +944,13 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(-0.7,0.71),
 
-                            child: Text('Spontané.e',style: TextStyle(color: selectedItems.contains("Spontané.e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Spontané·e',style: TextStyle(color: selectedItems.contains("Spontané·e") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),
                 GestureDetector(
                   onTap: () async {
-                    value = "Travailleur.se";
+                    value = "Travailleur·se";
 
                     if (selectedItems.contains(value)) {
                       selectedItems.remove(value);
@@ -986,7 +984,7 @@ class _Slide5_3State extends State<Slide5_3> {
                           child: GestureDetector(
 
                             onTap: () async {
-                              value = "Travailleur.se";
+                              value = "Travailleur·se";
 
                               if (selectedItems.contains(value)) {
                                 selectedItems.remove(value);
@@ -1016,7 +1014,7 @@ class _Slide5_3State extends State<Slide5_3> {
                               'images/nuage3.png',
                               width: 130,
                               height: 130,
-                              color: selectedItems.contains("Travailleur.se") ? Colors.purple : null,
+                              color: selectedItems.contains("Travailleur·se") ? Colors.purple : null,
 
                             ),
                           ),
@@ -1024,7 +1022,7 @@ class _Slide5_3State extends State<Slide5_3> {
                          Align(
                             alignment:Alignment(-0.01,0.84),
 
-                            child: Text('Travailleur.se',style: TextStyle(color: selectedItems.contains("Travailleur.se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
+                            child: Text('Travailleur·se',style: TextStyle(color: selectedItems.contains("Travailleur·se") ? Colors.white :  Colors.black,fontWeight: FontWeight.bold,fontSize: 15),)),
                       ]
                   ),
                 ),

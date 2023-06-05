@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class Slider_Widget extends StatefulWidget {
+
+  final ValueChanged<double> onChanged;
+
+  const Slider_Widget({super.key, required this.onChanged});
+
+
+
   @override
   _Slider_WidgetState createState() => _Slider_WidgetState();
 }
@@ -16,10 +23,12 @@ class _Slider_WidgetState extends State<Slider_Widget> {
     return Container(
       child: Stack(
         children: [
-          Center(
+          Align(
+            alignment: Alignment(0,1),
             child: CustomArc(),
           ),
-          Center(
+          Align(
+            alignment: Alignment(0,1),
             child: SleekCircularSlider(
               min: 0,
               max: 120,
@@ -45,6 +54,7 @@ class _Slider_WidgetState extends State<Slider_Widget> {
               onChange: (value) {
                 setState(() {
                   progressVal = value;
+                  widget.onChanged(value); // Appeler la fonction onChanged passée en paramètre
                 });
               },
               innerWidget: (percentage) {
@@ -58,10 +68,10 @@ class _Slider_WidgetState extends State<Slider_Widget> {
                   text = 'J’aimerais exprimer mes limites mais je n’y arrive pas.';
                   textColor = Colors.red;
                 } else if (percentage <= 60) {
-                  text = 'J’exprime ce que je veux ou ne veux pas mais je sens que je suis confus.e';
+                  text = 'J’exprime ce que je veux ou ne veux pas mais ce n\'est pas clair, je sens que je suis confus·e';
                   textColor = Colors.orange;
                 } else if (percentage <= 80) {
-                  text = 'J’exprime ce que je veux ou ne veux pas mais ça me met mal, c’est source d’angoisses et de conflits.';
+                  text = 'J’exprime ce que je veux ou ne veux pas mais c\'est difficile, c’est source d’angoisses et de conflits.';
                   textColor = Colors.yellow;
                 } else if (percentage <= 100) {
                   text = 'J’exprime ce que je veux ou ne veux pas mais ça me demande de l’énergie et c’est source d’appréhension.';
@@ -71,7 +81,7 @@ class _Slider_WidgetState extends State<Slider_Widget> {
                   textColor = Colors.green;
                 }
                 return  Align(
-                    alignment: const Alignment(0,1.8),
+                    alignment: const Alignment(0,0.5),
                     child: Card(
                 color: Colors.transparent,
                       elevation: 4,

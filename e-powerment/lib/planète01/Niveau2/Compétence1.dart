@@ -103,29 +103,26 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Etre capable de s’adapter";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 01,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 01,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
+
                   child: Stack(
                     children: [
                       Align(
@@ -168,29 +165,26 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Bien gérer son stress";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 02,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 02,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
+
                   child: Stack(
                     children: [
                       Align(
@@ -235,29 +229,26 @@ class _Competence01State extends State<Competence01> {
 
                   onTap: () async {
                     value = "Faire preuve de réactivité";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 03,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 03,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
+
                   child: Stack(
                     children: [
                       Align(
@@ -294,32 +285,29 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Savoir synthétiser";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 04,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 04,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
 
 
-                    child: Stack(
+
+                  child: Stack(
                       children: [
                         Align(
                           alignment: const Alignment(0.9, -0.5),
@@ -356,32 +344,29 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Communiquer clairement";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 05,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 05,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
 
 
-                    child: Stack(
+
+                  child: Stack(
                       children: [
                         Align(
                           alignment: const Alignment(0.9, -0.5),
@@ -417,30 +402,26 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Etre pédagogue";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 06,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 06,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
-
+                    await saveSelectedItems();
+                    setState(() {});
                   },
+
                   child: Stack(
                     children: [
                       Align(
@@ -476,29 +457,26 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Maîtriser tel logiciel";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 07,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 06,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
+
                   child: Stack(
                     children: [
                       Align(
@@ -535,28 +513,24 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Faire du pain";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 08,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 08,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
                   child: Stack(
                     children: [
@@ -593,28 +567,24 @@ class _Competence01State extends State<Competence01> {
                 child: GestureDetector(
                   onTap: () async {
                     value = "Concevoir des plans";
-
-                    if (selectedItems.contains(value)) {
+                    if (!selectedItems.contains(value)) {
+                      selectedItems.add(value);
+                      final competence = Competence(
+                        idCompetence: 09,
+                        competence: value,
+                      );
+                      await NotesDatabase.instance.createC(competence);
+                      print("Added $value");
+                    } else {
                       selectedItems.remove(value);
-                      Competence? competence = await NotesDatabase.instance
-                          .getCompetenceByValue(value);
+                      Competence? competence = await NotesDatabase.instance.getCompetenceByValue(value);
                       if (competence?.idCompetence != null) {
-                        await NotesDatabase.instance.deleteC(
-                            competence!.idCompetence!);
+                        await NotesDatabase.instance.deleteC(competence!.idCompetence!);
                         print("Deleted $value");
-                      } else {
-                        selectedItems.add(value);
-                        final competence = Competence(
-                          idCompetence: 09,
-                          competence: value,
-                        );
-                        await NotesDatabase.instance.createC(competence);
-                        print("Added $value");
                       }
-
-                      await saveSelectedItems();
-                      setState(() {});
                     }
+                    await saveSelectedItems();
+                    setState(() {});
                   },
                   child: Stack(
                     children: [

@@ -59,16 +59,19 @@ class _Slide1N4State extends State<Slide1N4> {
                         height:200 ),
                     Align(
                       alignment: const Alignment(0,-0.5),
-                      child: RichText(
-                        text:  const TextSpan(
-                          text: 'L\'objectif est donc de trouver le\nbesoin caché qui se trouve\n derrière ce que tu ressens.Pour\nça tu as plusieurs possibilités.\nPour commencer tu peux prendre\n une grande respiration et essayer\nde sentir ce qui se passeen toi et\n mettre un mot dessus ',
-                          style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: RichText(
+                          text:  const TextSpan(
+                            text: 'Ici je te propose de chercher le besoin qui se cache derrière ton émotion. Des fois, quand on ressent une émotion qui nous déborde, c’est parce qu’un de nos besoins n’est pas rempli. Alors, ça peut aider à faire passer l’émotion que de trouver de quel besoin il s’agit ! ',
+                            style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                          /*defining default style is optional */
+                            /*defining default style is optional */
 
+                          ),
+
+                          textAlign: TextAlign.center,
                         ),
-
-                        textAlign: TextAlign.center,
                       ),
                     ),
                     const SizedBox(
@@ -85,7 +88,7 @@ class _Slide1N4State extends State<Slide1N4> {
                             padding: const EdgeInsets.all(12),
                             textStyle: const TextStyle(fontSize: 20),
                             elevation: 10,
-                            backgroundColor: Colors.green,
+                            backgroundColor: Colors.purple,
 
                           ),
                           onPressed: (){
@@ -105,7 +108,7 @@ class _Slide1N4State extends State<Slide1N4> {
                             padding: const EdgeInsets.all(12),
                             textStyle: const TextStyle(fontSize: 20),
                             elevation: 10,
-                            backgroundColor: Colors.red,
+                            backgroundColor: Colors.pink.shade300,
 
                           ),
                           onPressed: (){

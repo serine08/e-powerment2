@@ -1,7 +1,10 @@
 
 
+import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Orange/Orange1.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/SliderWidget.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Vert.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/page_niveau5.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau05/rouge/Aide.dart';
 
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
@@ -16,6 +19,58 @@ class Limitometre extends StatefulWidget {
 }
 
 class _LimitometreState extends State<Limitometre> {
+  double sliderValue = 0.0;
+
+
+  void handleSliderChange(double value) {
+    setState(() {
+      sliderValue = value;
+    });
+  }
+  void handleNextButtonPress(BuildContext context) {
+    if (sliderValue <= 20) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Aide(),
+        ),
+      );
+    }
+   else if (sliderValue <= 40) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Aide(),
+        ),
+      );
+    }
+    else if (sliderValue <= 60) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Orange1(),
+        ),
+      );
+    }   else if (sliderValue <= 80) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Orange1(),
+        ),
+      );
+    }
+ else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Vert(),
+        ),
+      );
+      // Handle the case for values above 75 if needed
+    }
+  }
+
+
   Widget slider  = SleekCircularSlider(
     appearance:CircularSliderAppearance(),
     initialValue:25 ,
@@ -110,10 +165,10 @@ class _LimitometreState extends State<Limitometre> {
                     ),
 
                     Align(
-                      alignment: const Alignment(0,-0.7),
+                      alignment: const Alignment(0,-0.65),
                       child: RichText(
                         text:  const TextSpan(
-                          text: 'Est-ce que tu penses avoir\nexprimé ta limite, et\ncomment ? Regarde toutes\nles réponses possibles,\nréfléchis à ta situation et\nessaie de placer le curseur\nlà où tu penses te trouver.',
+                          text: 'Est-ce que tu penses avoir exprimé ta limite,\net comment ? Regarde toutes les réponses possibles, réfléchis à ta situation et essaie de placer le curseur là où tu penses te trouver.',
                           style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
                           /*defining default style is optional */
@@ -128,7 +183,7 @@ class _LimitometreState extends State<Limitometre> {
 
 
                 Align(
-                  alignment: const Alignment(0,0),
+                  alignment: const Alignment(0,-0.2),
 
                   child: Container(
 
@@ -150,9 +205,12 @@ class _LimitometreState extends State<Limitometre> {
 
                 ),
                     Align(
-                      alignment: const Alignment(0,0),
 
-                      child: Slider_Widget(),
+                      child: Slider_Widget(
+                        onChanged: handleSliderChange,
+
+
+                      ),
 
                     ),
                     Align(
@@ -161,10 +219,8 @@ class _LimitometreState extends State<Limitometre> {
 
 
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                          handleNextButtonPress(context);
 
-                            return    Limitometre();
-                          },),);
                         }, icon: const Icon(Icons.navigate_next),
                         iconSize: 40,
                         color: Colors.white,

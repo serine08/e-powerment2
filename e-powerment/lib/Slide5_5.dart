@@ -72,7 +72,7 @@ class _Slide5_5State extends State<Slide5_5> {
             alignment: const Alignment(0,-0.8),
             child: RichText(
               text: const TextSpan(
-                text: 'Voici le ciel de tes qualités! ',
+                text: 'Et voilà le ciel de tes qualités !\nElles définissent qui tu es\net elles contribuent à faire de toi une personne unique.\nTu peux modifier le ciel en choisissant d’autres qualités.\nRetrouves ces qualités derrière chacune des étoiles du jeu de grattage, dans ton menu principal.',
                 style: TextStyle(color: Colors.white , fontSize: 20 , fontWeight: FontWeight.bold),
               ),
 
@@ -131,28 +131,33 @@ class _Slide5_5State extends State<Slide5_5> {
 
     return Align(
       alignment: Alignment.center,
-      child: Scrollbar(
-        thickness: 8,
-        controller: scrollController,
-        scrollbarOrientation: ScrollbarOrientation.right,
-        interactive: true,
-        thumbVisibility: true,
-trackVisibility: true,
-        child: StaggeredGridView.countBuilder(
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 12), // Set the desired margin here
+
+        child: Scrollbar(
+
+          thickness: 8,
           controller: scrollController,
-          padding: const EdgeInsets.all(6),
-          itemCount: notes.length,
-          staggeredTileBuilder: (index) => _staggeredTiles[index],
-          crossAxisCount: 4,
-          itemBuilder: (context, index) {
-            final note = notes[index];
-            return Container(
-              child: QualityCardWidget(
-                note: note,
-                index: index,
-              ),
-            );
-          },
+          scrollbarOrientation: ScrollbarOrientation.right,
+          interactive: true,
+          thumbVisibility: true,
+trackVisibility: true,
+          child: StaggeredGridView.countBuilder(
+            controller: scrollController,
+            padding: const EdgeInsets.all(6),
+            itemCount: notes.length,
+            staggeredTileBuilder: (index) => _staggeredTiles[index],
+            crossAxisCount: 4,
+            itemBuilder: (context, index) {
+              final note = notes[index];
+              return Container(
+                child: QualityCardWidget(
+                  note: note,
+                  index: index,
+                ),
+              );
+            },
+          ),
         ),
       ),
 
