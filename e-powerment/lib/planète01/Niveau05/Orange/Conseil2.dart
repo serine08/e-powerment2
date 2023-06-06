@@ -59,7 +59,7 @@ class _Conseil2State extends State<Conseil2> {
                   child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
+                        color: Colors.orange.shade300,
                       ),
 
                       width: 350,
@@ -68,7 +68,8 @@ class _Conseil2State extends State<Conseil2> {
                       child: const Center(
                         child: Text('Me calmer avant de m’exprimer',style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18
+                            fontSize: 18,
+                          color: Colors.white
                         ),textAlign: TextAlign.center,),
                       )
                   ),

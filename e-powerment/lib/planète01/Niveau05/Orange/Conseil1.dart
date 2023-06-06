@@ -59,16 +59,17 @@ class _Conseil1State extends State<Conseil1> {
                   child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
+                        color: Colors.pink.shade100,
                       ),
 
-                      width: 350,
+                      width: 360,
                       height: 70,
 
                       child: const Center(
                         child: Text('Ne pas répondre tout de suite, prendre le temps de m’écouter et de réfléchir',style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18
+                            fontSize: 18,
+                          color: Colors.white
                         ),textAlign: TextAlign.center,),
                       )
                   ),

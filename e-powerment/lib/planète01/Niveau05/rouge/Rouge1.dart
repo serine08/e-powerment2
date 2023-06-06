@@ -5,6 +5,8 @@ import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Slide2Niveau4.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../Niveau2/Ciel02.dart';
+
 
 
 
@@ -58,46 +60,54 @@ class _Rouge1State extends State<Rouge1> {
                   children: [
                     const SizedBox(
                         height:200 ),
-                    Align(
-                      alignment: const Alignment(0,-0.5),
-                      child: RichText(
-                        text:  const TextSpan(
-                          text: 'C’est souvent difficile de refuser ou\nde dire non, parfois encore plus avec\nnos proches ou autravail. On ne sait\npas toujours clairement ce qu’on\nressent. Alors ne t’inquiète pas si tu\nn’y arrivespas, c’est un exercice et\nça s’apprend ! ',
-                          style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                          /*defining default style is optional */
 
-                        ),
 
-                        textAlign: TextAlign.center,
+
+
+                    const Positioned(
+                      top: 180,
+                      left: 20,
+                      right: 20,
+                      child: SpeechBubble(
+                        text: 'C’est souvent difficile de refuser ou de dire non, parfois encore plus avec nos proches ou autravail. On ne sait pas toujours clairement ce qu’on ressent. Alors ne t’inquiète pas si tu n’y arrivespas, c’est un exercice et ça s’apprend !',
+                        backgroundColor: Colors.white,
+                        textColor: Colors.black,
                       ),
                     ),
 
-
-
-
-                Align(
-                  alignment: const Alignment(0,0.395),
-
-                  child: Container(
-
-                      width: 161,
-                      height: 161,
-                      decoration:   const BoxDecoration(
-
-                        image: DecorationImage(
-                          image: AssetImage("images/momo.webp"),
-                          fit:BoxFit.cover,
-
+                    Positioned(
+                      top: 190,
+                      left: 40,
+                      right: 40,
+                      child: CustomPaint(
+                        painter: CirclePainter(
+                          circleSizes: [16, 12, 8], // Modify the sizes here
+                          circlePositions: [
+                            const Offset(160, 160), // Modify the positions here
+                            const Offset(130, 200),
+                            const Offset(100, 235),
+                          ],
+                          circleColor: Colors.white,
                         ),
-
-                        shape: BoxShape.rectangle,
-
-
-                      )
-                  ),
-
-                ),
+                        child: Container(),
+                      ),
+                    ),
+                    // Image of the character
+                    Align(
+                      alignment: const Alignment(-0.7, 0.65),
+                      child: Container(
+                        width: 161,
+                        height: 161,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("images/momo.webp"),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: BoxShape.rectangle,
+                        ),
+                      ),
+                    ),
                     Align(
                       alignment: const Alignment(0.9,0.95),
                       child: IconButton(
@@ -123,28 +133,6 @@ class _Rouge1State extends State<Rouge1> {
 ]
 
         ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       ),

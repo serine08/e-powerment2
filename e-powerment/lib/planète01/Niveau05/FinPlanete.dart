@@ -1,6 +1,5 @@
 
-import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Orange/Orange2.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Situation2.dart';
+import 'package:e_empowerment/Galaxy.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
 
 import 'package:flutter/material.dart';
@@ -124,7 +123,7 @@ class FinPlanete extends StatelessWidget {
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                                  return    Orange2();
+                                  return    Galaxy();
                                 },),);
                               }, icon: const Icon(Icons.navigate_next),
                               iconSize: 40,

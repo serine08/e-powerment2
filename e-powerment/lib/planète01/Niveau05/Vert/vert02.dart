@@ -1,26 +1,31 @@
 
-import 'dart:core';
+
+
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Limitom%C3%A8tre.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Situation2.dart';
-import 'package:e_empowerment/plan%C3%A8te01/Niveau05/rouge/QuestionsRouge.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau05/FinPlanete.dart';
+import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
+
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
 
+import '../../../notes_database.dart';
+import '../../Niveau1/Qualité/Souvenir/Souvenir2.dart';
 
 
 
 
-class SouvenirQuest extends StatefulWidget {
-  SouvenirQuest({Key? key}) : super(key: key);
+
+
+class vert02 extends StatefulWidget {
+  vert02({Key? key}) : super(key: key);
 
   @override
-  State<SouvenirQuest> createState() => _SouvenirQuestState();
+  State<vert02> createState() => _vert02State();
 }
 
-class _SouvenirQuestState extends State<SouvenirQuest> {
+class _vert02State extends State<vert02> {
   TextEditingController myController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
@@ -106,20 +111,32 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
                           ),
 
 
-                          Align(
-                            alignment: const Alignment(0,-0.65),
-                            child: RichText(
-                              text:  const TextSpan(
-                                text: 'On peut réfléchir ensemble pourquoi\nc’est compliqué d’exprimer et partager\ntes limites. Pense à une situation précise\net décris tes ressentis : pensées,\némotions, sensations physiques...',
-                                style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                                /*defining default style is optional */
+                          Stack(
+                              children:[
 
-                              ),
 
-                              textAlign: TextAlign.center,
-                            ),
+                                Align(
+                                  alignment: const Alignment(0,0),
+                                  child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30.0),
+                                        color: Colors.white,
+                                      ),
+
+                                      width: 250,
+                                      height: 150,
+
+                                      child: Align(
+                                          alignment:Alignment(0,-2.5),
+                                          child: buildTextField('Toucher pour écrire...'))
+                                  ),
+                                ),
+
+
+                              ]
                           ),
+
 
 
 
@@ -131,7 +148,7 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context){
 
-                                  return   const Limitometre();
+                                  return   const Slide1N4rouge();
                                 },),);
                               }, icon: const Icon(Icons.cancel),
                               iconSize: 40,
@@ -142,35 +159,42 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
                           ),
 
 
-                          Stack(
-                              children:[
 
 
-                                Align(
-                                  alignment: const Alignment(0,0.4),
-                                  child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30.0),
-                                        color: Colors.white,
-                                      ),
-
-                                      width: 250,
-                                      height: 150,
-
-                                      child: Align(
-                                          alignment: Alignment(0,-2.5),
-                                          child: buildTextField('Toucher pour écrire...'))
-                                  ),
-                                ),
+                          Align(
+                            alignment: const Alignment(0.9,0.95),
+                            child: IconButton(
 
 
+                              onPressed: () async {
+                             final form = _formKey.currentState;
+                             if (form != null && form.validate()) {
+                               form.save(); // Save the form data
 
-                              ]
+                               String textFieldValue = myController
+                                   .text; // Retrieve the text field value
+                               if (textFieldValue.isNotEmpty) {
+                                 final textFieldData = await NotesDatabase
+                                     .instance.createTextFieldData(
+                                     "some quality", textFieldValue);
+                                 print('Saved TextFieldData: $textFieldValue');
+                               }
+
+                               Navigator.push(
+                                 context, MaterialPageRoute(builder: (context) {
+                                 return FinPlanete();
+                               },),);
+                             } }, icon: const Icon(Icons.navigate_next),
+                              iconSize: 40,
+                              color: Colors.white,
+
+
+                            ),
                           ),
-
                           Align(
                             alignment:  const Alignment(0,0.6),
                             child:   iconTextButton("Record a voice",
+
                               Colors.red,
                                   () async {
                                 File file = File("");
@@ -208,45 +232,6 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
                             ),
                             // child:  Icon(recorder.isRecording ? Icons.stop : Icons.mic)),
                           ),
-
-                          Align(
-                            alignment: const Alignment(0,-0.15),
-                            child: TextButton(
-
-                                style: TextButton.styleFrom(
-                                    foregroundColor: Colors.black,
-                                    padding: const EdgeInsets.all(12),
-                                    textStyle: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                                    elevation: 10,
-                                    backgroundColor: Colors.white,
-                                    fixedSize: const Size(340, 100),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
-                                ),
-                                onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                                    return   QuestionsRouge();
-                                  },),);
-                                },
-                                child: const Text('Selectionner une question',textAlign: TextAlign.center,)),
-                          ),
-                          Align(
-                            alignment: const Alignment(0.9,0.95),
-                            child: IconButton(
-
-
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                                  return    Situation2();
-                                },),);
-                              }, icon: const Icon(Icons.navigate_next),
-                              iconSize: 40,
-                              color: Colors.white,
-
-
-                            ),
-                          )
                         ]
                     ),
 
@@ -256,6 +241,30 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
                 ),
               ],
             ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           ),
         ),
       ),
@@ -273,7 +282,7 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
         key: _formKey,
 
         child: TextFormField(
-   enabled: false,
+
           controller: myController,
           maxLines: null,
 
@@ -297,14 +306,6 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
               ),
 
               enabledBorder:   OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                      color: Colors.white,
-                      width: 1.5
-
-                  )
-              ),
-              disabledBorder:   OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
                       color: Colors.white,
@@ -340,41 +341,24 @@ class _SouvenirQuestState extends State<SouvenirQuest> {
 
   }
 }
-Widget iconTextButton(String name, Color color, Function function, Icon icon,
-    BuildContext context, List<Map<String, dynamic>> media) {
-  return GestureDetector(
-      onTap: () {
-      },
-      child:Container(
-        width: MediaQuery.of(context).size.width * 0.3,
-        child: Align(
-          alignment: const Alignment(0, 0.8),
-          child: SizedBox(
-            width: 100,
-            height: 80, // Adjust the height as needed
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Expanded(
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: color,
-                    ),
-                    child: Center(child: icon),
-                  ),
-                ),
-
-                Text(name,style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Colors.white),textAlign: TextAlign.center,),
-              ],
-            ),
-          ),
-        ),
-      )
 
 
 
-  );
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

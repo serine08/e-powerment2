@@ -5,6 +5,8 @@ import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Slide2Niveau4.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../Niveau2/Ciel02.dart';
+
 
 
 
@@ -58,45 +60,51 @@ class _Rouge2State extends State<Rouge2> {
                     children: [
                       const SizedBox(
                           height:200 ),
-                      Align(
-                        alignment: const Alignment(0,-0.5),
-                        child: RichText(
-                          text:  const TextSpan(
-                            text: 'Il y a souvent des obstacles qui nous empêchent d’exprimer nos vrais désirs et d’imposer les limites dont nous aurions besoin. Ici, tu trouveras les obstacles les plus courants. ',
-                            style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                            /*defining default style is optional */
 
-                          ),
 
-                          textAlign: TextAlign.center,
+                      const Positioned(
+                        top: 180,
+                        left: 20,
+                        right: 20,
+                        child: SpeechBubble(
+                          text: 'Il y a souvent des obstacles qui nous empêchent d’exprimer nos vrais désirs et d’imposer les limites dont nous aurions besoin. Ici, tu trouveras les obstacles les plus courants.',
+                          backgroundColor: Colors.white,
+                          textColor: Colors.black,
                         ),
                       ),
 
-
-
-
-                      Align(
-                        alignment: const Alignment(0,0.395),
-
-                        child: Container(
-
-                            width: 161,
-                            height: 161,
-                            decoration:   const BoxDecoration(
-
-                              image: DecorationImage(
-                                image: AssetImage("images/momo.webp"),
-                                fit:BoxFit.cover,
-
-                              ),
-
-                              shape: BoxShape.rectangle,
-
-
-                            )
+                      Positioned(
+                        top: 190,
+                        left: 40,
+                        right: 40,
+                        child: CustomPaint(
+                          painter: CirclePainter(
+                            circleSizes: [16, 12, 8], // Modify the sizes here
+                            circlePositions: [
+                              const Offset(160, 160), // Modify the positions here
+                              const Offset(130, 200),
+                              const Offset(100, 235),
+                            ],
+                            circleColor: Colors.white,
+                          ),
+                          child: Container(),
                         ),
-
+                      ),
+                      // Image of the character
+                      Align(
+                        alignment: const Alignment(-0.7, 0.65),
+                        child: Container(
+                          width: 161,
+                          height: 161,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("images/momo.webp"),
+                              fit: BoxFit.cover,
+                            ),
+                            shape: BoxShape.rectangle,
+                          ),
+                        ),
                       ),
                       Align(
                         alignment: const Alignment(0.9,0.95),

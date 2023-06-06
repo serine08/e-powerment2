@@ -5,6 +5,8 @@ import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4Cho
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/Questions/question01Bis.dart';
 import 'package:flutter/material.dart';
 
+import '../Limitomètre.dart';
+
 
 
 
@@ -71,7 +73,10 @@ class _QuestionsRougeState extends State<QuestionsRouge> {
 
 
                               onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
 
+                                  return   const Limitometre();
+                                },),);
                               }, icon: const Icon(Icons.cancel),
                               iconSize: 40,
                               color: Colors.white,

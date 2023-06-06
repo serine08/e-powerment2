@@ -1,4 +1,5 @@
 
+import 'package:e_empowerment/notes_database.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Orange/Orange3.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Situation2.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
@@ -54,20 +55,6 @@ class Orange2 extends StatelessWidget {
                           ),
 
 
-                          Align(
-                            alignment: const Alignment(0,-0.4),
-                            child: RichText(
-                              text:  const TextSpan(
-                                text: 'Pourquoi c’est compliqué d’exprimer tes limites ? On peut y réfléchir ensemble. Pense à la situation précisément, met toi en contexte et décris tes ressentis : pensées, émotions, sensations physiques... Note ce qui te viens en tête :',
-                                style: TextStyle(color: Colors.white , fontSize: 18 , fontWeight: FontWeight.bold),
-
-                                /*defining default style is optional */
-
-                              ),
-
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
 
 
 
@@ -95,7 +82,7 @@ class Orange2 extends StatelessWidget {
 
 
                                 Align(
-                                  alignment: const Alignment(0,0.7),
+                                  alignment: const Alignment(0,0.735),
                                   child: Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(30.0),
@@ -103,70 +90,98 @@ class Orange2 extends StatelessWidget {
                                       ),
 
                                       width: 250,
-                                      height: 150,
+                                      height: 130,
 
-                                      child: buildTextField('Toucher pour écrire...')
+
+                                          child: Align(
+                                              alignment: Alignment(0,-8),
+                                              child: buildTextField('Toucher pour écrire...'))
                                   ),
                                 ),
 
 
-                                Align(
-                                  alignment: const Alignment(0,0.42),
-                                  child: RichText(
-                                    text:  const TextSpan(
-                                      text: 'Ecrire un souvenir',
-                                      style: TextStyle(color: Colors.black , fontSize: 15 , fontWeight: FontWeight.bold),
 
-                                      /*defining default style is optional */
-
-                                    ),
-
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
                               ]
                           ),
 
 
-                          Align(
-                            alignment: const Alignment(0,0.1),
+                          const Positioned(
+                            top: 100,
+                            left: 20,
+                            right: 20,
+                            child: SpeechBubble(
+                              text: 'Pourquoi c’est compliqué d’exprimer tes limites ? On peut y réfléchir ensemble. Pense à la situation précisément, met toi en contexte et décris tes ressentis : pensées, émotions, sensations physiques... Note ce qui te viens en tête :',
+                              backgroundColor: Colors.white,
+                              textColor: Colors.black,
 
-                            child: Container(
-
-                                width: 150,
-                                height: 150,
-                                decoration:   const BoxDecoration(
-
-                                  image: DecorationImage(
-                                    image: AssetImage("images/momo.webp"),
-                                    fit:BoxFit.cover,
-
-                                  ),
-
-                                  shape: BoxShape.rectangle,
-
-
-                                )
                             ),
-
                           ),
+
+                          Positioned(
+                            top: 125,
+                            left: 40,
+                            right: 40,
+                            child: CustomPaint(
+                              painter: CirclePainter(
+                                circleSizes: [16, 12, 8], // Modify the sizes here
+                                circlePositions: [
+                                  const Offset(160, 160), // Modify the positions here
+                                  const Offset(130, 200),
+                                  const Offset(100, 235),
+                                ],
+                                circleColor: Colors.white,
+                              ),
+                              child: Container(),
+                            ),
+                          ),
+                          // Image of the character
+                          Align(
+                            alignment: const Alignment(-0.68, 0.28),
+                            child: Container(
+                              width: 130,
+                              height: 130,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("images/momo.webp"),
+                                  fit: BoxFit.cover,
+                                ),
+                                shape: BoxShape.rectangle,
+                              ),
+                            ),
+                          ),
+
                           Align(
                             alignment: const Alignment(0.9,0.95),
                             child: IconButton(
 
 
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                              onPressed: () async {
+                              final form = _formKey.currentState;
+                              if (form != null && form.validate()) {
+                                form.save(); // Save the form data
 
-                                  return    Orange3();
-                                },),);
-                              }, icon: const Icon(Icons.navigate_next),
+                                String textFieldValue = myController
+                                    .text; // Retrieve the text field value
+                                if (textFieldValue.isNotEmpty) {
+                                  final textFieldData = await NotesDatabase
+                                      .instance.createTextFieldData(
+                                      "some quality", textFieldValue);
+
+                                  print('Saved TextFieldData: $textFieldValue');
+                                }
+
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return Orange3();
+                                  },),);
+                              }   }, icon: const Icon(Icons.navigate_next),
                               iconSize: 40,
                               color: Colors.white,
 
 
                             ),
-                          )
+                          ),
+
                         ]
                     ),
 
@@ -176,31 +191,7 @@ class Orange2 extends StatelessWidget {
                 ),
               ],
             ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          ),
+ ),
         ),
       ),
 
@@ -223,7 +214,6 @@ class Orange2 extends StatelessWidget {
 
           onSaved: (String? value){
             String value = myController.text;
-            print('La valeur saisie est : $value');
           },
           decoration: InputDecoration(
 
@@ -275,4 +265,71 @@ class Orange2 extends StatelessWidget {
     );
 
   }
+}
+class SpeechBubble extends StatelessWidget {
+  final String text;
+  final Color backgroundColor;
+  final Color textColor;
+
+  const SpeechBubble({
+    Key? key,
+    required this.text,
+    this.backgroundColor = Colors.white,
+    this.textColor = Colors.black,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Text(
+            text,
+            style: TextStyle(color: textColor, fontSize: 16),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
+class CirclePainter extends CustomPainter {
+  final List<double> circleSizes;
+  final List<Offset> circlePositions;
+  final Color circleColor;
+
+  CirclePainter({required this.circleSizes, required this.circlePositions, required this.circleColor});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    for (int i = 0; i < circleSizes.length; i++) {
+      final circleSize = circleSizes[i];
+      final circlePosition = circlePositions[i];
+
+      final circlePaint = Paint()
+        ..color = circleColor
+        ..style = PaintingStyle.fill;
+
+      canvas.drawCircle(circlePosition, circleSize, circlePaint);
+    }
+  }
+  @override
+  bool shouldRepaint(CirclePainter oldPainter) {
+    return circleSizes != oldPainter.circleSizes ||
+        circlePositions != oldPainter.circlePositions ||
+        circleColor != oldPainter.circleColor;
+  }
+// Rest of the code...
 }

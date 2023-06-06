@@ -241,29 +241,6 @@ class FinSouvenir extends StatelessWidget {
 
             ),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           ),
         ),
       );

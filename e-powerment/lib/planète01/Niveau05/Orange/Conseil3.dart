@@ -59,7 +59,7 @@ class _Conseil3State extends State<Conseil3> {
                   child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
+                        color: Colors.lightBlue.shade100,
                       ),
 
                       width: 350,
@@ -68,7 +68,8 @@ class _Conseil3State extends State<Conseil3> {
                       child: const Center(
                         child: Text('Écrire et prendre des notes sur ce que je ressens et ce que je veux dire',style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18
+                            fontSize: 18,
+                          color: Colors.white
                         ),textAlign: TextAlign.center,),
                       )
                   ),

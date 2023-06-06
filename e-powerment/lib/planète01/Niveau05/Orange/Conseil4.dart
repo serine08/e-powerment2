@@ -59,16 +59,17 @@ class _Conseil4State extends State<Conseil4> {
                   child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
+                        color: Colors.green.shade200,
                       ),
 
                       width: 350,
-                      height: 70,
+                      height: 100,
 
                       child: const Center(
                         child: Text('Prendre le temps de réfléchir, seul.e ou en parler à un.e proche, des ami.e.s, mon.ma thérapeute',style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18
+                            fontSize: 18,
+                          color: Colors.white
                         ),textAlign: TextAlign.center,),
                       )
                   ),

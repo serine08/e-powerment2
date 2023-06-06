@@ -1,4 +1,5 @@
 
+import 'package:e_empowerment/notes_database.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Orange/ConseilsSwipe.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau05/Situation2.dart';
 import 'package:e_empowerment/plan%C3%A8te01/Niveau4/ChoixRouge/Slide1Niveau4ChoixRouge.dart';
@@ -126,25 +127,14 @@ final String value;
                                       width: 250,
                                       height: 150,
 
-                                      child: buildTextField('Toucher pour écrire...')
+                                      child: Align(
+                                          alignment: Alignment(0,-2.5),
+                                          child: buildTextField('Toucher pour écrire...'))
                                   ),
                                 ),
 
 
-                                Align(
-                                  alignment: const Alignment(0,0.1),
-                                  child: RichText(
-                                    text:  const TextSpan(
-                                      text: 'Ecrire un souvenir:',
-                                      style: TextStyle(color: Colors.black , fontSize: 18 , fontWeight: FontWeight.bold),
 
-                                      /*defining default style is optional */
-
-                                    ),
-
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
                               ]
                           ),
 
@@ -174,12 +164,26 @@ final String value;
                             child: IconButton(
 
 
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                              onPressed: () async {
+                                    final form = _formKey.currentState;
+                                    if (form != null && form.validate()) {
+                                      form.save(); // Save the form data
 
-                                  return    Situation2();
-                                },),);
-                              }, icon: const Icon(Icons.navigate_next),
+                                      String textFieldValue = myController
+                                          .text; // Retrieve the text field value
+                                      if (textFieldValue.isNotEmpty) {
+                                        final textFieldData = await NotesDatabase
+                                            .instance.createTextFieldData(
+                                            "some quality", textFieldValue);
+                                        print(
+                                            'Saved TextFieldData: $textFieldValue');
+                                      }
+
+                                      Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) {
+                                          return Situation2();
+                                        },),);
+                                    } }, icon: const Icon(Icons.navigate_next),
                               iconSize: 40,
                               color: Colors.white,
 
@@ -242,7 +246,6 @@ final String value;
 
           onSaved: (String? value){
             String value = myController.text;
-            print('La valeur saisie est : $value');
           },
           decoration: InputDecoration(
 

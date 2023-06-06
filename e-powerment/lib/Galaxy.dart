@@ -1,5 +1,5 @@
+import 'package:e_empowerment/PlanDeCrise/PresentationPlan%C3%A8te.dart';
 import 'package:e_empowerment/Slide1.dart';
-import 'package:e_empowerment/plan%C3%A8te01/niveau01/slide01.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -141,7 +141,10 @@ class _GalaxyState extends State<Galaxy> {
                                 alignment: const Alignment(-0.9,0.9),
                                 child: GestureDetector(
                                   onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context){
 
+                                      return const PresentationPlanete();
+                                    },),);
                                   },
                                   child: Container(
 
