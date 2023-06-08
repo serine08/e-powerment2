@@ -39,6 +39,14 @@ class _PresentationPlaneteState extends State<PresentationPlanete> with TickerPr
       begin: Offset.zero,
       end: Offset(0.0, 1.5), // Move text downwards
     ).animate(_controller);
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return pageNiveau01(); // Make sure to use the correct class name for the next page
+        }));
+      }
+    });
   }
 
   @override
@@ -111,18 +119,18 @@ class _PresentationPlaneteState extends State<PresentationPlanete> with TickerPr
                       animation: _controller,
                       builder: (BuildContext context, Widget? child) {
                         return Transform.scale(
-                            scale: _scaleAnimation.value,
-                            child: FractionalTranslation(
+                          scale: _scaleAnimation.value,
+                          child: FractionalTranslation(
                             translation: _textTranslateAnimation.value,
-                          child: const SpeechBubble(
-                            text:
-                            'Sur cette planète, on va chercher à définir un état de crise psychique : à partir de quand tu te dis que c’est la crise, comment tu peux la prévenir et l’anticiper, qui peut t’entourer, comment la traverser...L’objectif est de profiter d’un moment où tu n’es pas en crise pour élaborer tes solutions.\n\n C’est parti !',
-                            backgroundColor: Colors.black,
-                            textColor: Colors.white,
+                            child: const SpeechBubble(
+                              text:
+                              'Sur cette planète, on va chercher à définir un état de crise psychique : à partir de quand tu te dis que c’est la crise, comment tu peux la prévenir et l’anticiper, qui peut t’entourer, comment la traverser...L’objectif est de profiter d’un moment où tu n’es pas en crise pour élaborer tes solutions.\n\n C’est parti !',
+                              backgroundColor: Colors.black,
+                              textColor: Colors.white,
+                            ),
                           ),
-                            ) );
+                        );
                       },
-
                     ),
                   ),
 
@@ -138,10 +146,6 @@ class _PresentationPlaneteState extends State<PresentationPlanete> with TickerPr
                         setState(() {
                           _controller.forward();
                         });
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-
-                          return    pageNiveau01();
-                        },),);
                       },
                       child: const Text('Taper pour passer'),
                     ),
